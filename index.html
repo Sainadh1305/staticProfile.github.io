@@ -3,460 +3,1188 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sai | Portfolio</title>
-
+    <title>Sainadh Reddy | Cloud-Native Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/npm/lucide-icons/icons/code.svg" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- ===== Custom Animations & Utilities ===== -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                900: '#0D1B2A',
+                800: '#1A2B3A',
+                700: '#253B4D'
+              },
+              teal: {
+                primary: '#00C9FF',
+              },
+              lime: {
+                primary: '#92FE9D',
+              },
+              purple: {
+                primary: '#6E45E2',
+              },
+              white: {
+                primary: '#F9FAFB',
+              }
+            },
+            fontFamily: {
+              'inter': ['Inter', 'sans-serif'],
+              'jetbrains': ['JetBrains Mono', 'monospace'],
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'marquee': 'marquee 25s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              marquee: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-100%)' },
+              }
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+              'teal-gradient': 'linear-gradient(to right, #00C9FF, #92FE9D)',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Custom Styles -->
     <style>
-      /* === Animations === */
-      @keyframes fadeInUp   { from { opacity:0; transform:translateY(40px);} to { opacity:1; transform:none;} }
-      @keyframes fadeInLeft { from { opacity:0; transform:translateX(-40px);} to { opacity:1; transform:none;} }
-      .animate-fade-in-up   { animation:fadeInUp 1.1s cubic-bezier(.4,0,.2,1) both; }
-      .animate-fade-in-left { animation:fadeInLeft 1.1s cubic-bezier(.4,0,.2,1) both; }
-      .delay-200{animation-delay:.2s}.delay-300{animation-delay:.3s}.delay-400{animation-delay:.4s}.delay-500{animation-delay:.5s}
-
-      /* === Navigation underline === */
-      .nav-anim{position:relative;display:inline-block;overflow:hidden;}
-      .nav-underline{position:absolute;left:0;bottom:-2px;width:100%;height:3px;background:linear-gradient(to right,#06b6d4,#6366f1);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
-      .nav-anim:hover .nav-underline,.nav-anim:focus .nav-underline{transform:scaleX(1);}
-
-      /* === Marquee ticker === */
-      @keyframes marquee { 0%{transform:translateX(0);} 100%{transform:translateX(-100%);} }
-      .animate-marquee{animation:marquee 25s linear infinite;}
-
-      /* === Utility classes (Tailwind @apply) === */
-      .chip{ @apply px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-xs font-medium whitespace-nowrap hover:bg-teal-200 transition-colors duration-300; }
-      .btn-primary{ @apply inline-block px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-semibold shadow-lg hover:brightness-110 transition transform hover:scale-105; }
-      .btn-secondary{ @apply inline-block px-6 py-3 rounded-full border border-indigo-600 text-indigo-600 font-semibold hover:bg-indigo-50 transition transform hover:scale-105; }
-
-      /* === Timeline === */
-      .timeline-dot{ @apply absolute -left-[11px] top-2 w-5 h-5 rounded-full ring-4 ring-white; }
-      .dot-full{ @apply bg-indigo-600; }
-      .dot-part{ @apply bg-amber-500; }
-      .dot-intern{ @apply bg-emerald-500; }
-      .dot-pro{ @apply bg-fuchsia-500; }
-      .timeline-card{ @apply p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-lg hover:shadow-xl transition; }
-
-      /* === Frosted / glass card === */
-      .glass{ @apply bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl ring-1 ring-white/40 dark:ring-slate-700/50 shadow-xl; }
-      .gradient-border{position:relative;}
-      .gradient-border:before{content:"";position:absolute;inset:0;z-index:-1;padding:2px;border-radius:1.75rem;background:linear-gradient(135deg,#4f46e5,#06b6d4);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;}
+      /* === Base Styles === */
+      body {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+        background-color: #0D1B2A;
+        color: #F9FAFB;
+      }
       
-      /* === Toast notification === */
-      @keyframes fadeInOut { 0% { opacity: 0; transform: translateY(20px); } 10% { opacity: 1; transform: translateY(0); } 90% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-20px); } }
-      .toast-notification { animation: fadeInOut 3s ease-in-out forwards; }
-
-      /* === Social icons hover === */
-      .social-icon {
-        @apply p-2 rounded-full transition-all duration-300 transform;
+      /* === Animations === */
+      @keyframes fadeInUp { 
+        from { opacity: 0; transform: translateY(40px); } 
+        to { opacity: 1; transform: none; } 
       }
-      .social-icon:hover {
-        @apply scale-110 bg-gray-100;
+      
+      @keyframes fadeInLeft { 
+        from { opacity: 0; transform: translateX(-40px); } 
+        to { opacity: 1; transform: none; } 
       }
-      .social-icon.linkedin:hover { @apply bg-blue-50; }
-      .social-icon.github:hover { @apply bg-gray-100; }
-      .social-icon.twitter:hover { @apply bg-sky-50; }
-      .social-icon.instagram:hover { @apply bg-pink-50; }
+      
+      @keyframes fadeInRight { 
+        from { opacity: 0; transform: translateX(40px); } 
+        to { opacity: 1; transform: none; } 
+      }
+      
+      .animate-fade-in-up { 
+        animation: fadeInUp 1s cubic-bezier(.4,0,.2,1) both; 
+      }
+      
+      .animate-fade-in-left { 
+        animation: fadeInLeft 1s cubic-bezier(.4,0,.2,1) both; 
+      }
+      
+      .animate-fade-in-right { 
+        animation: fadeInRight 1s cubic-bezier(.4,0,.2,1) both; 
+      }
+      
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-400 { animation-delay: 0.4s; }
+      .delay-500 { animation-delay: 0.5s; }
+      
+      /* === Navigation === */
+      .nav-link {
+        position: relative;
+        display: inline-block;
+        padding: 0.25rem 0;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, #00C9FF, #92FE9D);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-link:hover::after,
+      .nav-link:focus::after {
+        transform: scaleX(1);
+      }
+      
+      /* === Custom Gradient Text === */
+      .gradient-text {
+        background: linear-gradient(to right, #00C9FF, #92FE9D);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      
+      /* === Button Styles === */
+      .btn-primary {
+        background: linear-gradient(to right, #00C9FF, #92FE9D);
+        color: #0D1B2A;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        box-shadow: 0 10px 15px -3px rgba(0, 201, 255, 0.1), 0 4px 6px -4px rgba(0, 201, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .btn-primary:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 20px 25px -5px rgba(0, 201, 255, 0.15), 0 8px 10px -6px rgba(0, 201, 255, 0.15);
+      }
+      
+      .btn-secondary {
+        background: transparent;
+        color: #00C9FF;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        border: 1px solid #00C9FF;
+        transition: all 0.3s ease;
+      }
+      
+      .btn-secondary:hover {
+        background: rgba(0, 201, 255, 0.1);
+        transform: translateY(-2px) scale(1.02);
+      }
+      
+      /* === Timeline Styling === */
+      .timeline-item {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 3rem;
+        border-left: 2px solid rgba(0, 201, 255, 0.3);
+      }
+      
+      .timeline-dot {
+        position: absolute;
+        top: 0;
+        left: -0.5625rem;
+        width: 1.125rem;
+        height: 1.125rem;
+        border-radius: 50%;
+        background: linear-gradient(to right, #00C9FF, #92FE9D);
+        z-index: 10;
+      }
+      
+      .timeline-card {
+        background-color: rgba(26, 43, 58, 0.5);
+        border: 1px solid rgba(249, 250, 251, 0.1);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+      }
+      
+      .timeline-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 201, 255, 0.1), 0 4px 6px -4px rgba(0, 201, 255, 0.1);
+      }
+      
+      /* === Skill Badge === */
+      .skill-badge {
+        background-color: rgba(0, 201, 255, 0.1);
+        color: #92FE9D;
+        border: 1px solid rgba(0, 201, 255, 0.3);
+        border-radius: 9999px;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      
+      .skill-badge:hover {
+        background-color: rgba(0, 201, 255, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      /* === Stats Counter === */
+      .stats-card {
+        background-color: rgba(26, 43, 58, 0.5);
+        border: 1px solid rgba(249, 250, 251, 0.1);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+      
+      .stats-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 201, 255, 0.1), 0 4px 6px -4px rgba(0, 201, 255, 0.1);
+      }
+      
+      /* === Toast Notification === */
+      @keyframes fadeInOut { 
+        0% { opacity: 0; transform: translateY(20px); } 
+        10% { opacity: 1; transform: translateY(0); } 
+        90% { opacity: 1; transform: translateY(0); } 
+        100% { opacity: 0; transform: translateY(-20px); } 
+      }
+      
+      .toast-notification { 
+        animation: fadeInOut 3s ease-in-out forwards; 
+      }
+      
+      /* === Canvas Wave Animation === */
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
     </style>
   </head>
-
-  <body class="bg-gradient-to-br from-indigo-50 via-white to-sky-50 text-slate-900 dark:text-slate-200 flex flex-col min-h-screen scroll-smooth">
-    <!-- ================= Navigation ================= -->
-    <header class="fixed inset-x-0 top-0 z-50 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl shadow">
-      <nav class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
-        <span class="text-3xl font-black tracking-widest text-teal-700 drop-shadow">SR</span>
-        <ul class="hidden md:flex gap-8 text-[17px] font-semibold">
-          <li><a href="#hero"      class="nav-anim">Home<span class="nav-underline"></span></a></li>
-          <li><a href="#about"     class="nav-anim">About<span class="nav-underline"></span></a></li>
-          <li><a href="#work"      class="nav-anim">Experience<span class="nav-underline"></span></a></li>
-          <li><a href="#projects"  class="nav-anim">Projects<span class="nav-underline"></span></a></li>
-          <li><a href="#contact"   class="nav-anim">Contact<span class="nav-underline"></span></a></li>
+  
+  <body class="font-inter text-white-primary bg-navy-900">
+    <!-- ================= Navigation Bar ================= -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#home" class="text-3xl font-black tracking-widest gradient-text">SR</a>
+        
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex space-x-8 text-base font-medium">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <!-- Mobile menu button -->
-        <button class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-white-primary hover:bg-navy-800 transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </nav>
+      
+      <!-- Mobile Menu (Hidden by default) -->
+      <div id="mobile-menu" class="hidden md:hidden bg-navy-800 border-t border-navy-700">
+        <ul class="py-2 px-6 space-y-2">
+          <li><a href="#home" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Home</a></li>
+          <li><a href="#about" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">About</a></li>
+          <li><a href="#experience" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Experience</a></li>
+          <li><a href="#skills" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Skills</a></li>
+          <li><a href="#projects" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Projects</a></li>
+          <li><a href="#contact" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Contact</a></li>
+        </ul>
+      </div>
     </header>
 
-    <main class="pt-20">
-      <!-- ================= Hero ================= -->
-      <section id="hero" class="relative overflow-hidden py-24 md:py-36 scroll-mt-16">
-        <div class="absolute inset-0 -z-10 bg-gradient-radial from-indigo-50 via-white to-white"></div>
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <!-- Copy -->
+    <main>
+      <!-- ================= Hero Section ================= -->
+      <section id="home" class="relative min-h-screen pt-24 pb-16 overflow-hidden">
+        <canvas id="wave-canvas" class="absolute inset-0 -z-10 opacity-30"></canvas>
+        
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <!-- Hero Content -->
           <div class="animate-fade-in-up">
             <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
-              <span class="bg-gradient-to-r from-indigo-600 via-blue-500 to-sky-400 bg-clip-text text-transparent">SAINADH</span>
-              <span class="block text-slate-800 dark:text-slate-100">Software Engineer</span>
+              <span class="gradient-text">SAINADH REDDY</span>
+              <span class="block mt-2 text-white-primary">Cloud-Native Engineer</span>
             </h1>
-            <div class="mt-6 overflow-hidden h-8 relative">
-              <ul class="animate-marquee flex gap-4 text-xs font-medium">
-                <li class="chip">Java & Spring Boot</li>
-                <li class="chip">React / Next.js</li>
-                <li class="chip">AWS & DevOps</li>
-                <li class="chip">Kafka</li>
-                <li class="chip">Kubernetes</li>
-                <li class="chip">Tailwind CSS</li>
-                <li class="chip">Terraform</li>
-              </ul>
-            </div>
-            <p class="mt-6 max-w-md text-lg text-slate-600 dark:text-slate-300">
+            
+            
+            <p class="mt-6 max-w-md text-lg text-white-primary/80">
               Grad student–turned–cloud‑native builder, shipping secure, scalable microservices & elegant UIs.
             </p>
-            <div class="mt-8 flex gap-4">
-              <a href="#work" class="btn-primary">View Work</a>
-              <a href="/resume.pdf" target="_blank" class="btn-secondary">Download Résumé</a>
+            
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#projects" class="btn-primary flex items-center">
+                View Projects
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+              
+              <a href="/resume.pdf" target="_blank" class="btn-secondary flex items-center">
+                Download Résumé
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </a>
             </div>
           </div>
-          <!-- Photo -->
-          <figure class="relative group animate-fade-in-left">
-            <img src="./assets/images/Sainadh.jpeg" alt="Sai" class="rounded-3xl shadow-xl w-72 md:w-96 h-72 md:h-96 object-cover group-hover:rotate-1 group-hover:scale-105 transition" />
-           
+          
+          <!-- Hero Image -->
+          <figure class="relative group animate-fade-in-left hidden md:block">
+            <div class="absolute inset-0 bg-gradient-to-r from-teal-primary to-lime-primary rounded-3xl blur-[40px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
+            <img 
+              src="./assets/images/Sainadh.jpeg" 
+              alt="Sainadh Reddy Penugonda" 
+              class="relative rounded-3xl shadow-xl w-72 md:w-96 h-72 md:h-96 object-cover group-hover:rotate-1 group-hover:scale-105 transition duration-500"
+            />
+            <div class="absolute -bottom-4 -right-4 p-2 bg-gradient-to-r from-teal-primary to-lime-primary rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div class="bg-navy-900 p-3 rounded-lg">
+                <p class="text-white-primary font-jetbrains text-xs whitespace-nowrap">
+                  &lt;Full-Stack Engineer /&gt;
+                </p>
+              </div>
+            </div>
           </figure>
         </div>
       </section>
-
-      <!-- ================= About ================= -->
-      <section id="about" class="min-h-[70vh] flex items-center justify-center px-4 scroll-mt-24 py-16">
-        <div class="max-w-3xl text-center">
-          <h2 class="text-4xl font-bold text-teal-700 mb-6 animate-fade-in-up">About Me</h2>
-          <p class="text-xl text-gray-700 mb-4 animate-fade-in-up delay-200">
-            I'm <strong>Sainadha Reddy Penugonda</strong>, a <strong>Software Development Engineer</strong> and graduate student at the University of Cincinnati (<em>GPA 3.90/4.00</em>).
-          </p>
-          <p class="text-xl text-gray-700 mb-4 animate-fade-in-up delay-300">
-            Passionate about designing cloud‑native apps with <strong>Java/Kotlin & Spring Boot</strong>, crafting intuitive UIs in <strong>React/Next.js & Tailwind CSS</strong>, and deploying scalable solutions on <strong>AWS</strong> using Docker, Kubernetes, & Terraform.
-          </p>
-          <p class="text-xl text-gray-700 animate-fade-in-up delay-400">
-            Away from the keyboard, you'll find me connecting with people, exploring cultures, and hunting for new cuisines.
-          </p>
-          <!-- Social links -->
-         
+      
+     
+      
+      <!-- ================= About Section ================= -->
+      <section id="about" class="py-24 px-6 scroll-mt-24">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-4xl font-bold text-center gradient-text mb-12">
+            About Me
+          </h2>
+          
+          <div class="bg-navy-800/50 backdrop-blur-lg border border-white-primary/10 rounded-2xl p-8 shadow-xl animate-fade-in-up">
+            <p class="text-xl text-white-primary/90 mb-6 animate-fade-in-up delay-200">
+              I'm <strong class="text-lime-primary">Sainadha Reddy Penugonda</strong>, a <strong class="text-lime-primary">Software Development Engineer</strong> and graduate student at the University of Cincinnati (<em class="text-teal-primary">GPA 3.90/4.00</em>).
+            </p>
+            
+            <p class="text-xl text-white-primary/80 mb-6 animate-fade-in-up delay-300">
+              Passionate about designing cloud‑native apps with <strong class="text-lime-primary">Java/Kotlin & Spring Boot</strong>, crafting intuitive UIs in <strong class="text-lime-primary">React/Next.js & Tailwind CSS</strong>, and deploying scalable solutions on <strong class="text-lime-primary">AWS</strong> using Docker, Kubernetes, & Terraform.
+            </p>
+            
+            <p class="text-xl text-white-primary/80 mb-8 animate-fade-in-up delay-400">
+              Away from the keyboard, you'll find me connecting with people, exploring cultures, and hunting for new cuisines.
+            </p>
+            
+            <!-- Tech Stack -->
+            <div class="mt-10">
+              <h3 class="text-xl font-semibold text-teal-primary mb-4">My Tech Stack</h3>
+              <div class="flex flex-wrap gap-3">
+                <span class="skill-badge">Java</span>
+                <span class="skill-badge">Spring Boot</span>
+                <span class="skill-badge">React</span>
+                <span class="skill-badge">Next.js</span>
+                <span class="skill-badge">TypeScript</span>
+                <span class="skill-badge">AWS</span>
+                <span class="skill-badge">Docker</span>
+                <span class="skill-badge">Kubernetes</span>
+                <span class="skill-badge">Kafka</span>
+                <span class="skill-badge">PostgreSQL</span>
+                <span class="skill-badge">Redis</span>
+                <span class="skill-badge">Terraform</span>
+                <span class="skill-badge">CI/CD</span>
+                <span class="skill-badge">Microservices</span>
+              </div>
+            </div>
+            
+          </div>
         </div>
       </section>
-
-      <!-- ================= Experience ================= -->
-      <section id="work" class="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 scroll-mt-24">
-        <h2 class="text-4xl font-bold text-center text-indigo-700 mb-14">Work Experience</h2>
-        <ol class="relative max-w-3xl mx-auto border-l-2 border-indigo-200 dark:border-indigo-500">
-          <!-- 1. Software Engineer (Full‑Time) -->
-          <li class="mb-12 ml-6">
-            <span class="timeline-dot dot-full"></span>
-            <div class="timeline-card">
-              <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                <h3 class="font-semibold text-lg">Software Engineer · <span class="text-indigo-600">University of Cincinnati</span></h3>
-                <time class="text-sm text-slate-500">Feb 2025 – May 2025</time>
-              </header>
-              <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Led 5‑person team delivering React + Spring Boot microservices; automated AWS ECS deployments with Terraform, reducing rollout time by 50 %.
-              </p>
+      
+      <!-- ================= Experience Section ================= -->
+      <section id="experience" class="py-24 px-6 scroll-mt-24">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-4xl font-bold text-center gradient-text mb-16">
+            Work Experience
+          </h2>
+          
+          <div class="space-y-12">
+            <!-- 1. Software Engineer (Full‑Time) -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                  <h3 class="font-semibold text-lg">Software Engineer · <span class="text-teal-primary">University of Cincinnati</span></h3>
+                  <time class="text-sm text-white-primary/60 font-jetbrains">Feb 2025 – May 2025</time>
+                </header>
+                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
+                  Led 5‑person team delivering React + Spring Boot microservices; automated AWS ECS deployments with Terraform, reducing rollout time by 50%.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="skill-badge text-xs">Java</span>
+                  <span class="skill-badge text-xs">Spring Boot</span>
+                  <span class="skill-badge text-xs">React</span>
+                  <span class="skill-badge text-xs">AWS ECS</span>
+                  <span class="skill-badge text-xs">Terraform</span>
+                </div>
+              </div>
             </div>
-          </li>
-
-          <!-- 2. Software Engineer (Part‑Time) -->
-          <li class="mb-12 ml-6">
-            <span class="timeline-dot dot-part"></span>
-            <div class="timeline-card">
-              <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                <h3 class="font-semibold text-lg">Software Engineer · <span class="text-amber-600">University of Cincinnati</span></h3>
-                <time class="text-sm text-slate-500">Jan 2024 – Dec 2024</time>
-              </header>
-              <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Enhanced Spring Boot APIs (−40 % latency), refactored cache layer with Redis, and created 30+ reusable React components.
-              </p>
+            
+            <!-- 2. Software Engineer (Part‑Time) -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                  <h3 class="font-semibold text-lg">Software Engineer · <span class="text-teal-primary">University of Cincinnati</span></h3>
+                  <time class="text-sm text-white-primary/60 font-jetbrains">Jan 2024 – Dec 2024</time>
+                </header>
+                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
+                  Enhanced Spring Boot APIs (−40% latency), refactored cache layer with Redis, and created 30+ reusable React components.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="skill-badge text-xs">Spring Boot</span>
+                  <span class="skill-badge text-xs">Redis</span>
+                  <span class="skill-badge text-xs">React</span>
+                  <span class="skill-badge text-xs">API Optimization</span>
+                </div>
+              </div>
             </div>
-          </li>
-
-          <!-- 3. Software Intern -->
-          <li class="mb-12 ml-6">
-            <span class="timeline-dot dot-intern"></span>
-            <div class="timeline-card">
-              <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                <h3 class="font-semibold text-lg">Software Intern · <span class="text-emerald-600">Ivor Source</span></h3>
-                <time class="text-sm text-slate-500">Sep 2024 – Dec 2024</time>
-              </header>
-              <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Built internal tooling stack (Spring Boot, Angular, PostgreSQL); secured 100+ APIs with OAuth2 and optimised AWS costs 35 %.
-              </p>
+            
+            <!-- 3. Software Intern -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                  <h3 class="font-semibold text-lg">Software Intern · <span class="text-teal-primary">Ivor Source</span></h3>
+                  <time class="text-sm text-white-primary/60 font-jetbrains">Sep 2024 – Dec 2024</time>
+                </header>
+                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
+                  Built internal tooling stack (Spring Boot, Angular, PostgreSQL); secured 100+ APIs with OAuth2 and optimised AWS costs 35%.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="skill-badge text-xs">Spring Boot</span>
+                  <span class="skill-badge text-xs">Angular</span>
+                  <span class="skill-badge text-xs">PostgreSQL</span>
+                  <span class="skill-badge text-xs">OAuth2</span>
+                  <span class="skill-badge text-xs">AWS</span>
+                </div>
+              </div>
             </div>
-          </li>
-
-          <!-- 4. Software Engineer -->
-          <li class="mb-12 ml-6">
-            <span class="timeline-dot dot-pro"></span>
-            <div class="timeline-card">
-              <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                <h3 class="font-semibold text-lg">Programmer Analyst Trainee · <span class="text-fuchsia-600">Cognizant</span></h3>
-                <time class="text-sm text-slate-500">Oct 2022 – Aug 2023</time>
-              </header>
-              <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Delivered microservices for Fortune 500 retail client; integrated Kafka streams; improved code coverage to 92 %.
-              </p>
+            
+            <!-- 4. Software Engineer -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                  <h3 class="font-semibold text-lg">Programmer Analyst Trainee · <span class="text-teal-primary">Cognizant</span></h3>
+                  <time class="text-sm text-white-primary/60 font-jetbrains">Oct 2022 – Aug 2023</time>
+                </header>
+                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
+                  Delivered microservices for Fortune 500 retail client; integrated Kafka streams; improved code coverage to 92%.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="skill-badge text-xs">Java</span>
+                  <span class="skill-badge text-xs">Microservices</span>
+                  <span class="skill-badge text-xs">Kafka</span>
+                  <span class="skill-badge text-xs">JUnit</span>
+                </div>
+              </div>
             </div>
-          </li>
-
-          <!-- 5. Associate Engineer -->
-          <li class="mb-12 ml-6">
-            <span class="timeline-dot dot-pro"></span>
-            <div class="timeline-card">
-              <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                <h3 class="font-semibold text-lg">Software Intern · <span class="text-fuchsia-600">Cognizant Technology Solutions Pvt Ltd</span></h3>
-                <time class="text-sm text-slate-500">Mar 2022 – Aug 2022</time>
-              </header>
-              <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Developed RESTful APIs in Java; collaborated with QA to cut production bugs 40 %; mentored two junior developers.
-              </p>
+            
+            <!-- 5. Associate Engineer -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                  <h3 class="font-semibold text-lg">Software Intern · <span class="text-teal-primary">Cognizant</span></h3>
+                  <time class="text-sm text-white-primary/60 font-jetbrains">Mar 2022 – Aug 2022</time>
+                </header>
+                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
+                  Developed RESTful APIs in Java; collaborated with QA to cut production bugs 40%; mentored two junior developers.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="skill-badge text-xs">Java</span>
+                  <span class="skill-badge text-xs">REST APIs</span>
+                  <span class="skill-badge text-xs">SQL</span>
+                  <span class="skill-badge text-xs">Mentoring</span>
+                </div>
+              </div>
             </div>
-          </li>
-        </ol>
+          </div>
+        </div>
       </section>
-
-      <!-- ================= Projects ================= -->
-      <section id="projects" class="py-24 px-4 scroll-mt-24 bg-gradient-to-br from-blue-100 via-white to-teal-100">
-        <h2 class="text-4xl font-bold text-center text-teal-700 mb-14">Projects</h2>
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
-          <!-- Project card 1 -->
-          <!-- <article class="bg-white dark:bg-slate-900 rounded-2xl shadow-xl hover:shadow-2xl transition flex flex-col transform hover:scale-105 duration-300 animate-fade-in-up">
-            <img src="https://via.placeholder.com/800x450" alt="May We Help platform" class="rounded-t-2xl h-48 md:h-56 w-full object-cover" loading="lazy" />
-            <div class="p-6 flex-grow flex flex-col">
-              <h3 class="font-semibold text-lg mb-2">May We Help – E‑commerce Platform</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 flex-grow">
-                Spring Boot + React storefront handling 10 K users, integrated AWS S3 & Stripe.
-              </p>
-              <ul class="flex flex-wrap gap-2 mt-4 text-xs">
-                <li class="chip">Java</li><li class="chip">React</li><li class="chip">AWS ECS</li>
+      
+      <!-- ================= Skills Section ================= -->
+      <section id="skills" class="py-24 px-6 scroll-mt-24 bg-navy-800/30">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-4xl font-bold text-center gradient-text mb-16">
+            Skills & Technologies
+          </h2>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Backend Technologies -->
+            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 hover:transform hover:scale-105 transition-all duration-300">
+              <h3 class="text-xl font-semibold text-teal-primary mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+                Backend
+              </h3>
+              
+              <ul class="space-y-4">
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Java</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="95%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Spring Boot</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Kotlin</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">PostgreSQL</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Redis</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
+                  </div>
+                </li>
               </ul>
-              <div class="mt-4 flex gap-4 text-sm font-medium">
-                <a href="#" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors flex items-center gap-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                  Demo
-                </a>
-                <a href="#" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors flex items-center gap-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
-                  Source
-                </a>
-              </div>
             </div>
-          </article> -->
-
-          <ul class="list-disc ml-6 text-lg space-y-4 text-gray-700">
-      <li class="animate-fade-in-up delay-200">
-        E‑commerce platform for May We Help NPO using Spring Boot, React & AWS.
-      </li>
-    
-    </ul>
+            
+            <!-- Frontend Technologies -->
+            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 hover:transform hover:scale-105 transition-all duration-300">
+              <h3 class="text-xl font-semibold text-teal-primary mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                Frontend
+              </h3>
+              
+              <ul class="space-y-4">
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">React</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Next.js</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">TypeScript</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Tailwind CSS</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Angular</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="75%"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Cloud & DevOps -->
+            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 hover:transform hover:scale-105 transition-all duration-300">
+              <h3 class="text-xl font-semibold text-teal-primary mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                </svg>
+                Cloud & DevOps
+              </h3>
+              
+              <ul class="space-y-4">
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">AWS</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Docker</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Kubernetes</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">Terraform</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                  </div>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1/3 text-white-primary/70">CI/CD</span>
+                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
-
-      <!-- ================= Contact ================= -->
-      <section id="contact" class="py-24 px-6 scroll-mt-24 bg-gradient-to-br from-indigo-50 via-white to-sky-100">
-        <h2 class="text-4xl font-bold text-center text-indigo-700 mb-10 animate-fade-in-up">Get In Touch</h2>
-        
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-          <!-- Contact Info -->
-          <div class="bg-white rounded-2xl shadow-xl p-8 animate-fade-in-up delay-200">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">Contact Information</h3>
-            
-            <div class="space-y-6">
-              <div class="flex items-center gap-4">
-                <div class="bg-indigo-100 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-sm text-slate-500">Email</p>
-                  <a href="mailto:psainadhareddy2001@gmail.com" class="text-indigo-600 font-medium hover:underline">psainadhareddy2001@gmail.com</a>
-                </div>
+      
+      <!-- ================= Projects Section ================= -->
+      <section id="projects" class="py-24 px-6 scroll-mt-24">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-4xl font-bold text-center gradient-text mb-16">
+            Featured Projects
+          </h2>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Project 1 -->
+            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl group">
+              <div class="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg" 
+                  alt="E-commerce platform" 
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-900 to-transparent opacity-60"></div>
               </div>
               
-              <div class="flex items-center gap-4">
-                <div class="bg-indigo-100 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+              <div class="p-6">
+                <h3 class="font-semibold text-xl text-teal-primary">E-commerce Platform</h3>
+                <p class="mt-2 text-white-primary/80 text-sm">
+                  Spring Boot + React storefront handling 10K users, integrated AWS S3 & Stripe. Implemented responsive UI and microservices architecture.
+                </p>
+                
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="skill-badge text-xs">Java</span>
+                  <span class="skill-badge text-xs">Spring Boot</span>
+                  <span class="skill-badge text-xs">React</span>
+                  <span class="skill-badge text-xs">AWS</span>
+                  <span class="skill-badge text-xs">Stripe API</span>
                 </div>
-                <div>
-                  <p class="text-sm text-slate-500">Phone</p>
-                  <a href="tel:+15134880840" class="text-indigo-600 font-medium hover:underline">+1 (513) 488-0840</a>
-                </div>
-              </div>
-              
-              <div class="flex items-center gap-4">
-                <div class="bg-indigo-100 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-sm text-slate-500">Location</p>
-                  <p class="text-indigo-600 font-medium">Cincinnati, Ohio</p>
+                
+                <div class="mt-4 flex gap-4 text-sm font-medium">
+                  <a href="#" class="text-teal-primary hover:text-lime-primary transition-colors flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <circle cx="12" cy="12" r="4"></circle>
+                      <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                      <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                      <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                      <line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line>
+                      <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+                    </svg>
+                    Live Demo
+                  </a>
+                  
+                  <a href="#" class="text-teal-primary hover:text-lime-primary transition-colors flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    Source Code
+                  </a>
                 </div>
               </div>
             </div>
             
-            <!-- Social Media Links -->
-            <div class="mt-8">
-              <p class="text-lg font-semibold text-slate-700 mb-4">Connect with me</p>
-              <div class="flex gap-4">
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/sainadh0507/" target="_blank" class="group">
-                  <div class="bg-white p-3 rounded-full shadow hover:shadow-md transition-all duration-300 transform group-hover:scale-110 group-hover:bg-blue-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0077b5" viewBox="0 0 24 24">
+            <!-- Project 2 -->
+           
+          </div>
+          
+          <!-- CTA for More Projects -->
+          <div class="mt-12 text-center">
+            <a href="https://github.com/sainadhreddy92" target="_blank" class="btn-primary inline-flex items-center">
+              See More Projects
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= Contact Section ================= -->
+      <section id="contact" class="py-24 px-6 scroll-mt-24 bg-navy-800/30">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-4xl font-bold text-center gradient-text mb-16">
+            Get In Touch
+          </h2>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Contact Info -->
+            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-8 shadow-xl animate-fade-in-up">
+              <h3 class="text-2xl font-semibold text-teal-primary mb-6">Contact Information</h3>
+              
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <div class="p-3 rounded-full bg-gradient-to-r from-teal-primary to-lime-primary bg-opacity-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-white-primary/60">Email</p>
+                    <a href="mailto:psainadhareddy2001@gmail.com" class="text-teal-primary font-medium hover:text-lime-primary transition-colors">psainadhareddy2001@gmail.com</a>
+                  </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                  <div class="p-3 rounded-full bg-gradient-to-r from-teal-primary to-lime-primary bg-opacity-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-white-primary/60">Phone</p>
+                    <a href="tel:+15134880840" class="text-teal-primary font-medium hover:text-lime-primary transition-colors">+1 (513) 488-0840</a>
+                  </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                  <div class="p-3 rounded-full bg-gradient-to-r from-teal-primary to-lime-primary bg-opacity-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-white-primary/60">Location</p>
+                    <p class="text-teal-primary font-medium">Cincinnati, Ohio</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Social Media Links -->
+              <div class="mt-8">
+                <p class="text-lg font-semibold text-white-primary mb-4">Connect with me</p>
+                <div class="flex gap-4">
+                  <a href="https://www.linkedin.com/in/sainadh0507/" target="_blank" class="p-3 bg-navy-700 hover:bg-navy-800 rounded-full transition transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00C9FF" viewBox="0 0 24 24">
                       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
-                  </div>
-                </a>
-                
-                <!-- GitHub -->
-                <a href="https://github.com/sainadhreddy92" target="_blank" class="group">
-                  <div class="bg-white p-3 rounded-full shadow hover:shadow-md transition-all duration-300 transform group-hover:scale-110 group-hover:bg-slate-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#333333" viewBox="0 0 24 24">
+                  </a>
+                  
+                  <a href="https://github.com/sainadhreddy92" target="_blank" class="p-3 bg-navy-700 hover:bg-navy-800 rounded-full transition transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#92FE9D" viewBox="0 0 24 24">
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
-                  </div>
-                </a>
-                
-                <!-- Twitter/X -->
-                <a href="https://twitter.com/sainadh_92" target="_blank" class="group">
-                  <div class="bg-white p-3 rounded-full shadow hover:shadow-md transition-all duration-300 transform group-hover:scale-110 group-hover:bg-slate-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 24 24">
+                  </a>
+                  
+                  <a href="https://twitter.com/sainadh_92" target="_blank" class="p-3 bg-navy-700 hover:bg-navy-800 rounded-full transition transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00C9FF" viewBox="0 0 24 24">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
-                  </div>
-                </a>
-                
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/sainadh_reddy92" target="_blank" class="group">
-                  <div class="bg-white p-3 rounded-full shadow hover:shadow-md transition-all duration-300 transform group-hover:scale-110 group-hover:bg-pink-50">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E4405F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </a>
+                  
+                  <a href="https://www.instagram.com/sainadh_reddy92" target="_blank" class="p-3 bg-navy-700 hover:bg-navy-800 rounded-full transition transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#92FE9D" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
-                  </div>
-                </a>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Contact Form -->
-          <div class="bg-white rounded-2xl shadow-xl p-8 animate-fade-in-up delay-300">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">Send Me a Message</h3>
-            <form>
-              <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors">
-              </div>
-              <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors">
-              </div>
-              <div class="mb-6">
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"></textarea>
-              </div>
-              <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-teal-500 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                Send Message
-              </button>
-            </form>
+            
+            <!-- Contact Form -->
+            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-8 shadow-xl animate-fade-in-up delay-200">
+              <h3 class="text-2xl font-semibold text-teal-primary mb-6">Send Me a Message</h3>
+              <form id="contact-form">
+                <div class="mb-4">
+                  <label for="name" class="block text-sm font-medium text-white-primary/70 mb-1">Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    class="w-full px-4 py-2 bg-navy-700 border border-white-primary/10 rounded-lg focus:ring-2 focus:ring-teal-primary focus:border-teal-primary transition-colors text-white-primary"
+                  />
+                </div>
+                
+                <div class="mb-4">
+                  <label for="email" class="block text-sm font-medium text-white-primary/70 mb-1">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="w-full px-4 py-2 bg-navy-700 border border-white-primary/10 rounded-lg focus:ring-2 focus:ring-teal-primary focus:border-teal-primary transition-colors text-white-primary"
+                  />
+                </div>
+                
+                <div class="mb-6">
+                  <label for="message" class="block text-sm font-medium text-white-primary/70 mb-1">Message</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="4" 
+                    class="w-full px-4 py-2 bg-navy-700 border border-white-primary/10 rounded-lg focus:ring-2 focus:ring-teal-primary focus:border-teal-primary transition-colors text-white-primary"
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  class="w-full py-3 px-4 bg-gradient-to-r from-teal-primary to-lime-primary text-navy-900 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
-
-      <!-- Floating Get‑in‑Touch button -->
+      
+      <!-- Floating Get-in-Touch button -->
       <div class="fixed bottom-8 right-8 z-50 group">
-        <button class="w-16 h-16 bg-gradient-to-r from-indigo-600 to-teal-500 rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform duration-300" 
-                onclick="document.getElementById('contactCard').classList.toggle('hidden')">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        <button 
+          id="contact-btn" 
+          class="w-14 h-14 bg-gradient-to-r from-teal-primary to-lime-primary rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform duration-300"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-navy-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            <circle cx="9" cy="10" r="1"></circle>
+            <circle cx="14" cy="10" r="1"></circle>
+            <circle cx="19" cy="10" r="1"></circle>
           </svg>
         </button>
-        <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-3 py-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Contact Me</span>
+        <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-navy-800 text-white-primary text-xs px-3 py-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Contact Me</span>
       </div>
-
+      
       <!-- Floating contact card (hidden by default) -->
-      <div id="contactCard" class="hidden gradient-border glass fixed bottom-24 right-8 rounded-2xl p-5 w-72 shadow-xl animate-fade-in-up">
+      <div id="contact-card" class="hidden fixed bottom-24 right-8 bg-navy-800/90 backdrop-blur-xl border border-white-primary/20 rounded-2xl p-5 w-72 shadow-xl animate-fade-in-up z-50">
         <div class="flex justify-between items-center mb-3">
-          <h2 class="text-xl font-bold text-indigo-700 flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 10.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 11-7.6-12.3" />
+          <h2 class="text-xl font-bold text-teal-primary flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
             Get in Touch
           </h2>
-          <button onclick="document.getElementById('contactCard').classList.add('hidden')" class="text-slate-500 hover:text-slate-700">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <button id="close-card" class="text-white-primary/60 hover:text-white-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
-        <p class="text-slate-700 mb-2 text-sm">
-          📧 <button class="hover:underline" onclick="copyText('psainadhareddy2001@gmail.com')">psainadhareddy2001@gmail.com</button>
+        
+        <p class="text-white-primary/80 mb-2 text-sm flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <button class="hover:text-teal-primary transition-colors" onclick="copyText('psainadhareddy2001@gmail.com')">psainadhareddy2001@gmail.com</button>
         </p>
-        <p class="text-slate-700 mb-2 text-sm">
-          📞 <button class="hover:underline" onclick="copyText('+15134880840')">+1‑513‑488‑0840</button>
+        
+        <p class="text-white-primary/80 mb-2 text-sm flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <button class="hover:text-teal-primary transition-colors" onclick="copyText('+15134880840')">+1 (513) 488-0840</button>
         </p>
-        <p class="text-slate-700 text-sm mb-4">
-          💼 <a class="hover:underline" href="https://www.linkedin.com/in/sainadhd0507" target="_blank">LinkedIn Profile</a>
+        
+        <p class="text-white-primary/80 text-sm mb-4 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+          <a class="hover:text-teal-primary transition-colors" href="https://www.linkedin.com/in/sainadh0507" target="_blank">LinkedIn Profile</a>
         </p>
-        <a href="#contact" class="block w-full py-2 text-center bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition" 
-           onclick="document.getElementById('contactCard').classList.add('hidden')">
+        
+        <a 
+          href="#contact" 
+          class="block w-full py-2 text-center bg-gradient-to-r from-teal-primary to-lime-primary text-navy-900 rounded-lg hover:shadow-lg transition font-medium"
+          onclick="document.getElementById('contact-card').classList.add('hidden')"
+        >
           Contact Form
         </a>
       </div>
     </main>
-
+    
     <!-- ================= Footer ================= -->
-    <footer class="py-10 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
+    <footer class="py-12 bg-navy-800 border-t border-white-primary/10">
       <div class="max-w-5xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-700 pb-8 mb-8">
+        <div class="flex flex-col md:flex-row justify-between items-center border-b border-white-primary/10 pb-8 mb-8">
           <div class="mb-6 md:mb-0">
-            <span class="text-3xl font-black tracking-widest text-teal-400">SR</span>
-            <p class="mt-2 text-slate-300 max-w-md">Building elegant, scalable software solutions with a focus on cloud-native architecture and beautiful user experiences.</p>
+            <span class="text-3xl font-black tracking-widest gradient-text">SR</span>
+            <p class="mt-2 text-white-primary/60 max-w-md">Building elegant, scalable software solutions with a focus on cloud-native architecture and beautiful user experiences.</p>
           </div>
+          
+          <div class="flex gap-6">
+            <a href="https://www.linkedin.com/in/sainadh0507/" target="_blank" class="text-white-primary/60 hover:text-teal-primary transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            
+            <a href="https://github.com/sainadhreddy92" target="_blank" class="text-white-primary/60 hover:text-teal-primary transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            
+            <a href="https://twitter.com/sainadh_92" target="_blank" class="text-white-primary/60 hover:text-teal-primary transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
         <!-- Copyright & Back to Top -->
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-slate-400 text-sm">© 2025 Sainadh Reddy Penugonda — All rights reserved.</p>
-          <a href="#hero" class="mt-4 md:mt-0 flex items-center gap-2 text-teal-400 hover:text-white transition group">
+          <p class="text-white-primary/60 text-sm">© 2025 Sainadh Reddy Penugonda — All rights reserved.</p>
+          <a href="#home" class="mt-4 md:mt-0 flex items-center gap-2 text-teal-primary hover:text-lime-primary transition group">
             Back to top
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:-translate-y-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
             </svg>
           </a>
         </div>
       </div>
     </footer>
-
+    
     <!-- ================= Scripts ================= -->
     <script>
-      // Smooth scrolling for anchor links on older browsers
+      // ================= Navigation ================= 
+      // Toggle mobile menu
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      
+      // Add background to navbar on scroll
+      const navbar = document.getElementById('navbar');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add('bg-navy-900/90', 'backdrop-blur-xl', 'shadow-lg');
+        } else {
+          navbar.classList.remove('bg-navy-900/90', 'backdrop-blur-xl', 'shadow-lg');
+        }
+      });
+      
+      // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
           const target = document.getElementById(link.getAttribute('href').substring(1));
-          if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+          if (target) {
+            e.preventDefault();
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+            }
+          }
         });
       });
-
-      // Copy to clipboard helper with toast notification
-      function copyText(txt){
-        navigator.clipboard.writeText(txt).then(()=>{
-          // Create toast notification
+      
+      // ================= Stats Counter Animation =================
+      const counters = document.querySelectorAll('.counter');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const suffix = counter.getAttribute('data-suffix');
+            let current = 0;
+            const increment = target / 100;
+            const duration = 2000;
+            const stepTime = 20;
+            
+            const updateCounter = () => {
+              current += increment;
+              if (current < target) {
+                counter.textContent = current.toFixed(1).replace(/\.0$/, '') + suffix;
+                setTimeout(updateCounter, stepTime);
+              } else {
+                counter.textContent = target.toString() + suffix;
+              }
+            };
+            
+            updateCounter();
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
+      
+      // ================= Skills Progress Animation =================
+      const skillBars = document.querySelectorAll('.skill-progress');
+      const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const skillBar = entry.target;
+            const targetWidth = skillBar.getAttribute('data-width');
+            
+            setTimeout(() => {
+              skillBar.style.width = targetWidth;
+            }, 200);
+            
+            skillObserver.unobserve(skillBar);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      skillBars.forEach(skillBar => {
+        skillObserver.observe(skillBar);
+      });
+      
+      // ================= Canvas Wave Animation =================
+      const waveCanvas = document.getElementById('wave-canvas');
+      const ctx = waveCanvas.getContext('2d');
+      
+      function resizeCanvas() {
+        waveCanvas.width = window.innerWidth;
+        waveCanvas.height = window.innerHeight;
+      }
+      
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      
+      const wave = {
+        y: waveCanvas.height / 2,
+        length: 0.01,
+        amplitude: 100,
+        frequency: 0.01
+      };
+      
+      const colors = ['rgba(0, 201, 255, 0.2)', 'rgba(146, 254, 157, 0.2)', 'rgba(110, 69, 226, 0.2)'];
+      
+      function drawWave(color, frequency, amplitude, offset) {
+        ctx.beginPath();
+        ctx.moveTo(0, waveCanvas.height);
+        
+        for (let i = 0; i < waveCanvas.width; i++) {
+          const x = i;
+          const y = waveCanvas.height / 2 + Math.sin(x * frequency + offset) * amplitude;
+          ctx.lineTo(x, y);
+        }
+        
+        ctx.lineTo(waveCanvas.width, waveCanvas.height);
+        ctx.lineTo(0, waveCanvas.height);
+        ctx.closePath();
+        
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+      
+      let offset1 = 0;
+      let offset2 = 3;
+      let offset3 = 6;
+      
+      function animate() {
+        ctx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+        
+        offset1 += 0.01;
+        offset2 += 0.015;
+        offset3 += 0.02;
+        
+        drawWave(colors[0], wave.frequency, wave.amplitude * 0.7, offset1);
+        drawWave(colors[1], wave.frequency * 1.5, wave.amplitude * 0.5, offset2);
+        drawWave(colors[2], wave.frequency * 2, wave.amplitude * 0.3, offset3);
+        
+        requestAnimationFrame(animate);
+      }
+      
+      animate();
+      
+      // ================= Contact Form =================
+      const contactForm = document.getElementById('contact-form');
+      
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Show success message (in a real application, you would send the data to a server)
+        const successToast = document.createElement('div');
+        successToast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-primary to-lime-primary text-navy-900 px-6 py-3 rounded-lg shadow-xl z-50 toast-notification';
+        successToast.innerHTML = `
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span class="font-medium">Message sent successfully!</span>
+          </div>
+        `;
+        
+        document.body.appendChild(successToast);
+        
+        // Remove toast after animation completes
+        setTimeout(() => {
+          document.body.removeChild(successToast);
+        }, 3000);
+        
+        // Reset form
+        contactForm.reset();
+      });
+      
+      // ================= Floating Contact Card =================
+      const contactBtn = document.getElementById('contact-btn');
+      const contactCard = document.getElementById('contact-card');
+      const closeCardBtn = document.getElementById('close-card');
+      
+      contactBtn.addEventListener('click', () => {
+        contactCard.classList.toggle('hidden');
+      });
+      
+      closeCardBtn.addEventListener('click', () => {
+        contactCard.classList.add('hidden');
+      });
+      
+      // ================= Copy to Clipboard =================
+      function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
           const toast = document.createElement('div');
-          toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-lg z-50 toast-notification';
-          toast.textContent = `Copied: ${txt}`;
+          toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-primary to-lime-primary text-navy-900 px-6 py-3 rounded-lg shadow-xl z-50 toast-notification';
+          toast.innerHTML = `
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+              <span class="font-medium">Copied: ${text}</span>
+            </div>
+          `;
+          
           document.body.appendChild(toast);
           
-          // Remove after animation completes
           setTimeout(() => {
             document.body.removeChild(toast);
           }, 3000);
