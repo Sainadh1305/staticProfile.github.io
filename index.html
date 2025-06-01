@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sainadh Reddy | Cloud-Native Engineer</title>
     <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/npm/lucide-icons/icons/code.svg" />
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,338 +18,289 @@
         theme: {
           extend: {
             colors: {
-              navy: {
-                900: '#0D1B2A',
-                800: '#1A2B3A',
-                700: '#253B4D'
-              },
-              teal: {
-                primary: '#00C9FF',
-              },
-              lime: {
-                primary: '#92FE9D',
-              },
-              purple: {
-                primary: '#6E45E2',
-              },
-              white: {
-                primary: '#F9FAFB',
-              }
+              navy: { 900: '#0D1B2A', 800: '#1A2B3A', 700: '#253B4D' },
+              teal: { primary: '#00C9FF' },
+              lime: { primary: '#92FE9D' },
+              purple: { primary: '#6E45E2' },
+              white: { primary: '#F9FAFB' }
             },
             fontFamily: {
-              'inter': ['Inter', 'sans-serif'],
-              'jetbrains': ['JetBrains Mono', 'monospace'],
+              inter: ['Inter', 'sans-serif'],
+              jetbrains: ['JetBrains Mono', 'monospace']
             },
             animation: {
-              'float': 'float 6s ease-in-out infinite',
+              float: 'float 6s ease-in-out infinite',
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'marquee': 'marquee 25s linear infinite',
+              marquee: 'marquee 25s linear infinite'
             },
             keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              },
-              marquee: {
-                '0%': { transform: 'translateX(0)' },
-                '100%': { transform: 'translateX(-100%)' },
-              }
+              float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+              marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-100%)' } }
             },
             backgroundImage: {
               'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-              'teal-gradient': 'linear-gradient(to right, #00C9FF, #92FE9D)',
+              'teal-gradient': 'linear-gradient(to right, #00C9FF, #92FE9D)'
             }
           }
         }
       }
     </script>
-    
-    <!-- Custom Styles -->
+
     <style>
-      /* === Base Styles === */
-      body {
-        font-family: 'Inter', sans-serif;
-        scroll-behavior: smooth;
-        background-color: #0D1B2A;
-        color: #F9FAFB;
-      }
-      
-      /* === Animations === */
-      @keyframes fadeInUp { 
-        from { opacity: 0; transform: translateY(40px); } 
-        to { opacity: 1; transform: none; } 
-      }
-      
-      @keyframes fadeInLeft { 
-        from { opacity: 0; transform: translateX(-40px); } 
-        to { opacity: 1; transform: none; } 
-      }
-      
-      @keyframes fadeInRight { 
-        from { opacity: 0; transform: translateX(40px); } 
-        to { opacity: 1; transform: none; } 
-      }
-      
-      .animate-fade-in-up { 
-        animation: fadeInUp 1s cubic-bezier(.4,0,.2,1) both; 
-      }
-      
-      .animate-fade-in-left { 
-        animation: fadeInLeft 1s cubic-bezier(.4,0,.2,1) both; 
-      }
-      
-      .animate-fade-in-right { 
-        animation: fadeInRight 1s cubic-bezier(.4,0,.2,1) both; 
-      }
-      
-      .delay-100 { animation-delay: 0.1s; }
-      .delay-200 { animation-delay: 0.2s; }
-      .delay-300 { animation-delay: 0.3s; }
-      .delay-400 { animation-delay: 0.4s; }
-      .delay-500 { animation-delay: 0.5s; }
-      
-      /* === Navigation === */
-      .nav-link {
-        position: relative;
-        display: inline-block;
-        padding: 0.25rem 0;
-        transition: color 0.3s ease;
-      }
-      
-      .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(to right, #00C9FF, #92FE9D);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s ease;
-      }
-      
-      .nav-link:hover::after,
-      .nav-link:focus::after {
-        transform: scaleX(1);
-      }
-      
-      /* === Custom Gradient Text === */
-      .gradient-text {
-        background: linear-gradient(to right, #00C9FF, #92FE9D);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      
-      /* === Button Styles === */
-      .btn-primary {
-        background: linear-gradient(to right, #00C9FF, #92FE9D);
-        color: #0D1B2A;
-        font-weight: 600;
-        padding: 0.75rem 1.5rem;
-        border-radius: 9999px;
-        box-shadow: 0 10px 15px -3px rgba(0, 201, 255, 0.1), 0 4px 6px -4px rgba(0, 201, 255, 0.1);
-        transition: all 0.3s ease;
-      }
-      
-      .btn-primary:hover {
-        transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 20px 25px -5px rgba(0, 201, 255, 0.15), 0 8px 10px -6px rgba(0, 201, 255, 0.15);
-      }
-      
-      .btn-secondary {
-        background: transparent;
-        color: #00C9FF;
-        font-weight: 600;
-        padding: 0.75rem 1.5rem;
-        border-radius: 9999px;
-        border: 1px solid #00C9FF;
-        transition: all 0.3s ease;
-      }
-      
-      .btn-secondary:hover {
-        background: rgba(0, 201, 255, 0.1);
-        transform: translateY(-2px) scale(1.02);
-      }
-      
-      /* === Timeline Styling === */
-      .timeline-item {
-        position: relative;
-        padding-left: 2rem;
-        margin-bottom: 3rem;
-        border-left: 2px solid rgba(0, 201, 255, 0.3);
-      }
-      
-      .timeline-dot {
-        position: absolute;
-        top: 0;
-        left: -0.5625rem;
-        width: 1.125rem;
-        height: 1.125rem;
-        border-radius: 50%;
-        background: linear-gradient(to right, #00C9FF, #92FE9D);
-        z-index: 10;
-      }
-      
-      .timeline-card {
-        background-color: rgba(26, 43, 58, 0.5);
-        border: 1px solid rgba(249, 250, 251, 0.1);
-        border-radius: 1rem;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-      }
-      
-      .timeline-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(0, 201, 255, 0.1), 0 4px 6px -4px rgba(0, 201, 255, 0.1);
-      }
-      
-      /* === Skill Badge === */
-      .skill-badge {
-        background-color: rgba(0, 201, 255, 0.1);
-        color: #92FE9D;
-        border: 1px solid rgba(0, 201, 255, 0.3);
-        border-radius: 9999px;
-        padding: 0.25rem 0.75rem;
-        font-size: 0.75rem;
-        font-weight: 500;
-        transition: all 0.3s ease;
-      }
-      
-      .skill-badge:hover {
-        background-color: rgba(0, 201, 255, 0.2);
-        transform: translateY(-2px);
-      }
-      
-      /* === Stats Counter === */
-      .stats-card {
-        background-color: rgba(26, 43, 58, 0.5);
-        border: 1px solid rgba(249, 250, 251, 0.1);
-        border-radius: 1rem;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-        height: 100%;
-      }
-      
-      .stats-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(0, 201, 255, 0.1), 0 4px 6px -4px rgba(0, 201, 255, 0.1);
-      }
-      
-      /* === Toast Notification === */
-      @keyframes fadeInOut { 
-        0% { opacity: 0; transform: translateY(20px); } 
-        10% { opacity: 1; transform: translateY(0); } 
-        90% { opacity: 1; transform: translateY(0); } 
-        100% { opacity: 0; transform: translateY(-20px); } 
-      }
-      
-      .toast-notification { 
-        animation: fadeInOut 3s ease-in-out forwards; 
-      }
-      
-      /* === Canvas Wave Animation === */
-      canvas {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
+      /* Base Styles */
+      body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; background-color: #0D1B2A; color: #F9FAFB; }
+
+      /* Animations */
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+      @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+      @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: none; } }
+      .animate-fade-in-up { animation: fadeInUp 1s cubic-bezier(.4,0,.2,1) both; }
+      .animate-fade-in-left { animation: fadeInLeft 1s cubic-bezier(.4,0,.2,1) both; }
+      .animate-fade-in-right { animation: fadeInRight 1s cubic-bezier(.4,0,.2,1) both; }
+      .delay-100 { animation-delay: 0.1s; } .delay-200 { animation-delay: 0.2s; } .delay-300 { animation-delay: 0.3s; }
+
+      /* Navigation */
+    
+      .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background: #00C9FF; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+      .nav-link:hover::after, .nav-link:focus::after { transform: scaleX(1); }
+
+      /* Override gradient-text to solid white */
+      .gradient-text { background: none !important; -webkit-background-clip: unset !important; background-clip: unset !important; color: #F9FAFB !important; }
+
+      /* Button Styles */
+      .btn-primary { background: #00C9FF; color: #0D1B2A; font-weight: 600; padding: .75rem 1.5rem; border-radius: 9999px; box-shadow: 0 10px 15px -3px rgba(0,201,255,0.1),0 4px 6px -4px rgba(0,201,255,0.1); transition: all .3s ease; }
+      .btn-primary:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 20px 25px -5px rgba(0,201,255,0.15),0 8px 10px -6px rgba(0,201,255,0.15); }
+      .btn-secondary { background: transparent; color: #00C9FF; font-weight: 600; padding: .75rem 1.5rem; border-radius: 9999px; border: 1px solid #00C9FF; transition: all .3s ease; }
+      .btn-secondary:hover { background: rgba(0,201,255,0.1); transform: translateY(-2px) scale(1.02); }
+
+      /* Timeline, Skills, Stats, Projects, Contact card, etc. remain unchanged */
+      /* Add to your style section */
+.signature-text {
+  font-family: 'Brush Script MT', cursive;
+  transform: rotate(-5deg);
+  display: inline-block;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+  letter-spacing: 0.05em;
+  position: relative;
+  color: #00C9FF;
+  animation: signatureAppear 1.8s ease-out forwards;
+}
+
+.signature-text::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: signatureLine 1s ease-out 0.8s forwards;
+}
+/* Add this to your style section to fix overlay */
+#mobile-menu-overlay {
+  background-color: rgba(13, 27, 42, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  z-index: 40 !important;
+}
+
+/* Make your menu solid with no transparency */
+#mobile-menu {
+  background-color: #1A2B3A !important; /* solid color instead of transparent */
+  border-left: 1px solid rgba(37, 59, 77, 0.8);
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 50 !important;
+}
+/* Add to your style section */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+#mobile-menu-overlay {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Active menu item style */
+.active-mobile-link {
+  border-left-color: #00C9FF !important;
+  color: #00C9FF !important;
+  background-color: rgba(0, 201, 255, 0.1);
+}
+
+@keyframes signatureAppear {
+  0% { opacity: 0; transform: translateY(-20px) rotate(-5deg) scale(0.8); }
+  50% { opacity: 1; transform: translateY(5px) rotate(-5deg) scale(1.1); }
+  70% { transform: translateY(-2px) rotate(-5deg) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) rotate(-5deg) scale(1); }
+}
+
+@keyframes signatureLine {
+  0% { opacity: 0; transform: scaleX(0); }
+  100% { opacity: 0.7; transform: scaleX(1); }
+}
+.nav-link {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+  /* Timeline */
+  .timeline-item {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #00C9FF;
+    border-radius: 50%;
+  }
+  .timeline-card {
+    background: rgba(26, 43, 58, 0.5);
+    border: 1px solid rgba(249,250,251,0.1);
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
     </style>
   </head>
-  
   <body class="font-inter text-white-primary bg-navy-900">
-    <!-- ================= Navigation Bar ================= -->
+    <!-- Navigation -->
     <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#home" class="text-3xl font-black tracking-widest gradient-text">SR</a>
-        
-        <!-- Desktop Menu -->
-        <ul class="hidden md:flex space-x-8 text-base font-medium">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-white-primary hover:bg-navy-800 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </nav>
-      
-      <!-- Mobile Menu (Hidden by default) -->
-      <div id="mobile-menu" class="hidden md:hidden bg-navy-800 border-t border-navy-700">
-        <ul class="py-2 px-6 space-y-2">
-          <li><a href="#home" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Home</a></li>
-          <li><a href="#about" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">About</a></li>
-          <li><a href="#experience" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Experience</a></li>
-          <li><a href="#skills" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Skills</a></li>
-          <li><a href="#projects" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Projects</a></li>
-          <li><a href="#contact" class="block py-2 px-4 hover:bg-navy-700 rounded transition-colors">Contact</a></li>
-        </ul>
-      </div>
+       <a href="#home" class="text-3xl font-black tracking-widest signature-text">SR</a>
+       <ul class="hidden md:flex space-x-8 text-base font-medium">
+  <li><a href="#home" class="nav-link group relative px-2 py-1 overflow-hidden">
+    <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">Home</span>
+    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-primary group-hover:w-full transition-all duration-300"></span>
+  </a></li>
+  <li><a href="#about" class="nav-link group relative px-2 py-1 overflow-hidden">
+    <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">About</span>
+    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-primary group-hover:w-full transition-all duration-300"></span>
+  </a></li>
+  <li><a href="#experience" class="nav-link group relative px-2 py-1 overflow-hidden">
+    <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">Experience</span>
+    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-primary group-hover:w-full transition-all duration-300"></span>
+  </a></li>
+  <li><a href="#skills" class="nav-link group relative px-2 py-1 overflow-hidden">
+    <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">Skills</span>
+    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-primary group-hover:w-full transition-all duration-300"></span>
+  </a></li>
+  <li><a href="#projects" class="nav-link group relative px-2 py-1 overflow-hidden">
+    <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">Projects</span>
+    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-primary group-hover:w-full transition-all duration-300"></span>
+  </a></li>
+  <li><a href="#contact" class="nav-link group relative px-2 py-1 overflow-hidden">
+    <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">Contact</span>
+    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-primary group-hover:w-full transition-all duration-300"></span>
+  </a></li>
+</ul>
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-white-primary hover:bg-navy-800 transition-colors flex items-center justify-center">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</button>
+</nav>
+<!-- Mobile sidebar menu (hidden by default) -->
+<div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-navy-900/80 z-40 md:hidden backdrop-blur-sm"></div>
+<div id="mobile-menu" class="hidden fixed top-0 right-0 bottom-0 w-64 bg-navy-800 border-l border-navy-700 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+  <div class="flex justify-between items-center p-4 border-b border-navy-700">
+    <span class="text-xl font-bold text-teal-primary">Menu</span>
+    <button id="mobile-menu-close" class="p-1 rounded-lg text-white-primary hover:bg-navy-700 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <ul class="py-4">
+    <li class="mobile-menu-item transform translate-x-8 opacity-0 transition-all duration-200 ease-out">
+      <a href="#home" class="block py-3 px-6 hover:bg-navy-700 text-white-primary hover:text-teal-primary border-l-4 border-transparent hover:border-teal-primary transition-all">Home</a>
+    </li>
+    <li class="mobile-menu-item transform translate-x-8 opacity-0 transition-all duration-200 ease-out">
+      <a href="#about" class="block py-3 px-6 hover:bg-navy-700 text-white-primary hover:text-teal-primary border-l-4 border-transparent hover:border-teal-primary transition-all">About</a>
+    </li>
+    <li class="mobile-menu-item transform translate-x-8 opacity-0 transition-all duration-200 ease-out">
+      <a href="#experience" class="block py-3 px-6 hover:bg-navy-700 text-white-primary hover:text-teal-primary border-l-4 border-transparent hover:border-teal-primary transition-all">Experience</a>
+    </li>
+    <li class="mobile-menu-item transform translate-x-8 opacity-0 transition-all duration-200 ease-out">
+      <a href="#skills" class="block py-3 px-6 hover:bg-navy-700 text-white-primary hover:text-teal-primary border-l-4 border-transparent hover:border-teal-primary transition-all">Skills</a>
+    </li>
+    <li class="mobile-menu-item transform translate-x-8 opacity-0 transition-all duration-200 ease-out">
+      <a href="#projects" class="block py-3 px-6 hover:bg-navy-700 text-white-primary hover:text-teal-primary border-l-4 border-transparent hover:border-teal-primary transition-all">Projects</a>
+    </li>
+    <li class="mobile-menu-item transform translate-x-8 opacity-0 transition-all duration-200 ease-out">
+      <a href="#contact" class="block py-3 px-6 hover:bg-navy-700 text-white-primary hover:text-teal-primary border-l-4 border-transparent hover:border-teal-primary transition-all">Contact</a>
+    </li>
+  </ul>
+</div>
     </header>
 
     <main>
       <!-- ================= Hero Section ================= -->
-      <section id="home" class="relative min-h-screen pt-24 pb-16 overflow-hidden">
-        <canvas id="wave-canvas" class="absolute inset-0 -z-10 opacity-30"></canvas>
-        
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <!-- Hero Content -->
-          <div class="animate-fade-in-up">
-            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
-              <span class="gradient-text">SAINADH REDDY</span>
-              <span class="block mt-2 text-white-primary">Cloud-Native Engineer</span>
-            </h1>
-            
-            
-            <p class="mt-6 max-w-md text-lg text-white-primary/80">
-              Grad student–turned–cloud‑native builder, shipping secure, scalable microservices & elegant UIs.
-            </p>
-            
-            <div class="mt-8 flex flex-wrap gap-4">
-              <a href="#projects" class="btn-primary flex items-center">
-                View Projects
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </a>
-              
-              <a href="/resume.pdf" target="_blank" class="btn-secondary flex items-center">
-                Download Résumé
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </a>
-            </div>
-          </div>
-          
-          <!-- Hero Image -->
-          <figure class="relative group animate-fade-in-left hidden md:block">
-            <div class="absolute inset-0 bg-gradient-to-r from-teal-primary to-lime-primary rounded-3xl blur-[40px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
-            <img 
-              src="./assets/images/Sainadh.jpeg" 
-              alt="Sainadh Reddy Penugonda" 
-              class="relative rounded-3xl shadow-xl w-72 md:w-96 h-72 md:h-96 object-cover group-hover:rotate-1 group-hover:scale-105 transition duration-500"
-            />
-            <div class="absolute -bottom-4 -right-4 p-2 bg-gradient-to-r from-teal-primary to-lime-primary rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div class="bg-navy-900 p-3 rounded-lg">
-                <p class="text-white-primary font-jetbrains text-xs whitespace-nowrap">
-                  &lt;Full-Stack Engineer /&gt;
-                </p>
-              </div>
-            </div>
-          </figure>
+      <section id="home" class="relative min-h-screen pt-40 pb-16 overflow-hidden">
+  <canvas id="wave-canvas" class="absolute inset-0 -z-10 opacity-30"></canvas>
+  
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <!-- Hero Content -->
+    <div class="animate-fade-in-up">
+       <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+        <span class="bg-gradient-to-r from-teal-primary to-teal-primary bg-clip-text text-transparent">SAINADH REDDY</span>
+         <span class="block mt-2 text-white-primary opacity-0 animate-fade-in-up delay-500 text-3xl md:text-3xl">Software Development Engineer</span>
+      </h1>
+      
+      
+      <p class="mt-6 max-w-md text-lg text-white-primary/80">
+        Accomplished SDE with an MS in Information Technology and over three years of experience delivering cloud-native services.
+      </p>
+      
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#experience" class="btn-primary flex items-center">
+          View Experience
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+         <a href="./assets/Resume/Sainadha Reddy Penugonda_Resume.pdf" target="_blank" download="SainadhaReddyPenugonda_Resume.pdf" class="btn-secondary flex items-center">
+          Download Resume
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+       
+      </div>
+    </div>
+    
+    <!-- Hero Image -->
+    <figure class="relative group animate-fade-in-left hidden md:block">
+      <div class="absolute inset-0 bg-gradient-to-r from-teal-primary to-lime-primary rounded-3xl blur-[40px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
+      <img 
+        src="./assets/images/Sainadh.jpeg" 
+        alt="Sainadh Reddy Penugonda" 
+        class="relative rounded-3xl shadow-xl w-72 md:w-96 h-72 md:h-96 object-cover group-hover:rotate-1 group-hover:scale-105 transition duration-500"
+      />
+      <div class="absolute -bottom-4 -right-4 p-2 bg-gradient-to-r from-teal-primary to-lime-primary rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div class="bg-navy-900 p-3 rounded-lg">
+          <p class="text-white-primary font-jetbrains text-xs whitespace-nowrap">
+            &lt;Full-Stack Engineer /&gt;
+          </p>
         </div>
-      </section>
+      </div>
+    </figure>
+  </div>
+</section>
+
       
      
       
@@ -362,11 +313,11 @@
           
           <div class="bg-navy-800/50 backdrop-blur-lg border border-white-primary/10 rounded-2xl p-8 shadow-xl animate-fade-in-up">
             <p class="text-xl text-white-primary/90 mb-6 animate-fade-in-up delay-200">
-              I'm <strong class="text-lime-primary">Sainadha Reddy Penugonda</strong>, a <strong class="text-lime-primary">Software Development Engineer</strong> and graduate student at the University of Cincinnati (<em class="text-teal-primary">GPA 3.90/4.00</em>).
+              I'm <strong class="text-teal-primary">Sainadha Reddy Penugonda</strong>, a <strong class="text-teal-primary">Software Development Engineer</strong> and graduate student at the University of Cincinnati (<em class="text-teal-primary">GPA 3.90/4.00</em>).
             </p>
             
             <p class="text-xl text-white-primary/80 mb-6 animate-fade-in-up delay-300">
-              Passionate about designing cloud‑native apps with <strong class="text-lime-primary">Java/Kotlin & Spring Boot</strong>, crafting intuitive UIs in <strong class="text-lime-primary">React/Next.js & Tailwind CSS</strong>, and deploying scalable solutions on <strong class="text-lime-primary">AWS</strong> using Docker, Kubernetes, & Terraform.
+              Passionate about designing cloud‑native apps with <strong class="text-teal-primary">Java/Kotlin & Spring Boot</strong>, crafting intuitive UIs in <strong class="text-teal-primary">React/Next.js & Tailwind CSS</strong>, and deploying scalable solutions on <strong class="text-teal-primary">AWS</strong> using Docker, Kubernetes, & Terraform.
             </p>
             
             <p class="text-xl text-white-primary/80 mb-8 animate-fade-in-up delay-400">
@@ -535,31 +486,31 @@
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Java</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="95%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="95%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Spring Boot</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Kotlin</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">PostgreSQL</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Redis</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
                   </div>
                 </li>
               </ul>
@@ -580,31 +531,31 @@
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">React</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Next.js</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">TypeScript</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Tailwind CSS</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Angular</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="75%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="75%"></div>
                   </div>
                 </li>
               </ul>
@@ -623,31 +574,31 @@
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">AWS</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Docker</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Kubernetes</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">Terraform</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
                   </div>
                 </li>
                 <li class="flex items-center">
                   <span class="w-1/3 text-white-primary/70">CI/CD</span>
                   <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-lime-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
+                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
                   </div>
                 </li>
               </ul>
@@ -720,7 +671,7 @@
           
           <!-- CTA for More Projects -->
           <div class="mt-12 text-center">
-            <a href="https://github.com/sainadhreddy92" target="_blank" class="btn-primary inline-flex items-center">
+            <a href="https://github.com/Sainadh1305" target="_blank" class="btn-primary inline-flex items-center">
               See More Projects
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9 18l6-6-6-6"></path>
@@ -744,7 +695,7 @@
               
               <div class="space-y-6">
                 <div class="flex items-center gap-4">
-                  <div class="p-3 rounded-full bg-gradient-to-r from-teal-primary to-lime-primary bg-opacity-10">
+                  <div class="p-3 rounded-full bg-gradient-to-r from-teal-primary to-teal-primary bg-opacity-10">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                       <polyline points="22,6 12,13 2,6"></polyline>
@@ -757,7 +708,7 @@
                 </div>
                 
                 <div class="flex items-center gap-4">
-                  <div class="p-3 rounded-full bg-gradient-to-r from-teal-primary to-lime-primary bg-opacity-10">
+                  <div class="p-3 rounded-full bg-gradient-to-r from-teal-primary to-teal-primary bg-opacity-10">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
@@ -769,7 +720,7 @@
                 </div>
                 
                 <div class="flex items-center gap-4">
-                  <div class="p-3 rounded-full bg-gradient-to-r from-teal-primary to-lime-primary bg-opacity-10">
+                  <div class="p-3 rounded-full bg-gradient-to-r from-teal-primary to-teal-primary bg-opacity-10">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                       <circle cx="12" cy="10" r="3"></circle>
@@ -792,7 +743,7 @@
                     </svg>
                   </a>
                   
-                  <a href="https://github.com/sainadhreddy92" target="_blank" class="p-3 bg-navy-700 hover:bg-navy-800 rounded-full transition transform hover:scale-110">
+                  <a href="https://github.com/Sainadh1305" target="_blank" class="p-3 bg-navy-700 hover:bg-navy-800 rounded-full transition transform hover:scale-110">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#92FE9D" viewBox="0 0 24 24">
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
@@ -849,7 +800,7 @@
                 
                 <button 
                   type="submit" 
-                  class="w-full py-3 px-4 bg-gradient-to-r from-teal-primary to-lime-primary text-navy-900 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                  class="w-full py-3 px-4 bg-gradient-to-r from-teal-primary to-teal-primary text-navy-900 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
                   Send Message
                 </button>
@@ -863,7 +814,7 @@
       <div class="fixed bottom-8 right-8 z-50 group">
         <button 
           id="contact-btn" 
-          class="w-14 h-14 bg-gradient-to-r from-teal-primary to-lime-primary rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform duration-300"
+          class="w-14 h-14 bg-gradient-to-r from-teal-primary to-teal-primary rounded-full shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform duration-300"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-navy-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -893,37 +844,6 @@
           </button>
         </div>
         
-        <p class="text-white-primary/80 mb-2 text-sm flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          <button class="hover:text-teal-primary transition-colors" onclick="copyText('psainadhareddy2001@gmail.com')">psainadhareddy2001@gmail.com</button>
-        </p>
-        
-        <p class="text-white-primary/80 mb-2 text-sm flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <button class="hover:text-teal-primary transition-colors" onclick="copyText('+15134880840')">+1 (513) 488-0840</button>
-        </p>
-        
-        <p class="text-white-primary/80 text-sm mb-4 flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-          <a class="hover:text-teal-primary transition-colors" href="https://www.linkedin.com/in/sainadh0507" target="_blank">LinkedIn Profile</a>
-        </p>
-        
-        <a 
-          href="#contact" 
-          class="block w-full py-2 text-center bg-gradient-to-r from-teal-primary to-lime-primary text-navy-900 rounded-lg hover:shadow-lg transition font-medium"
-          onclick="document.getElementById('contact-card').classList.add('hidden')"
-        >
-          Contact Form
-        </a>
       </div>
     </main>
     
@@ -943,7 +863,7 @@
               </svg>
             </a>
             
-            <a href="https://github.com/sainadhreddy92" target="_blank" class="text-white-primary/60 hover:text-teal-primary transition-colors">
+            <a href="https://github.com/Sainadh1305" target="_blank" class="text-white-primary/60 hover:text-teal-primary transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
@@ -972,224 +892,6 @@
     </footer>
     
     <!-- ================= Scripts ================= -->
-    <script>
-      // ================= Navigation ================= 
-      // Toggle mobile menu
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-      
-      // Add background to navbar on scroll
-      const navbar = document.getElementById('navbar');
-      
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-          navbar.classList.add('bg-navy-900/90', 'backdrop-blur-xl', 'shadow-lg');
-        } else {
-          navbar.classList.remove('bg-navy-900/90', 'backdrop-blur-xl', 'shadow-lg');
-        }
-      });
-      
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', e => {
-          const target = document.getElementById(link.getAttribute('href').substring(1));
-          if (target) {
-            e.preventDefault();
-            window.scrollTo({
-              top: target.offsetTop - 80,
-              behavior: 'smooth'
-            });
-            
-            // Close mobile menu if open
-            if (!mobileMenu.classList.contains('hidden')) {
-              mobileMenu.classList.add('hidden');
-            }
-          }
-        });
-      });
-      
-      // ================= Stats Counter Animation =================
-      const counters = document.querySelectorAll('.counter');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const counter = entry.target;
-            const target = parseFloat(counter.getAttribute('data-target'));
-            const suffix = counter.getAttribute('data-suffix');
-            let current = 0;
-            const increment = target / 100;
-            const duration = 2000;
-            const stepTime = 20;
-            
-            const updateCounter = () => {
-              current += increment;
-              if (current < target) {
-                counter.textContent = current.toFixed(1).replace(/\.0$/, '') + suffix;
-                setTimeout(updateCounter, stepTime);
-              } else {
-                counter.textContent = target.toString() + suffix;
-              }
-            };
-            
-            updateCounter();
-            observer.unobserve(counter);
-          }
-        });
-      }, { threshold: 0.5 });
-      
-      counters.forEach(counter => {
-        observer.observe(counter);
-      });
-      
-      // ================= Skills Progress Animation =================
-      const skillBars = document.querySelectorAll('.skill-progress');
-      const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const skillBar = entry.target;
-            const targetWidth = skillBar.getAttribute('data-width');
-            
-            setTimeout(() => {
-              skillBar.style.width = targetWidth;
-            }, 200);
-            
-            skillObserver.unobserve(skillBar);
-          }
-        });
-      }, { threshold: 0.5 });
-      
-      skillBars.forEach(skillBar => {
-        skillObserver.observe(skillBar);
-      });
-      
-      // ================= Canvas Wave Animation =================
-      const waveCanvas = document.getElementById('wave-canvas');
-      const ctx = waveCanvas.getContext('2d');
-      
-      function resizeCanvas() {
-        waveCanvas.width = window.innerWidth;
-        waveCanvas.height = window.innerHeight;
-      }
-      
-      resizeCanvas();
-      window.addEventListener('resize', resizeCanvas);
-      
-      const wave = {
-        y: waveCanvas.height / 2,
-        length: 0.01,
-        amplitude: 100,
-        frequency: 0.01
-      };
-      
-      const colors = ['rgba(0, 201, 255, 0.2)', 'rgba(146, 254, 157, 0.2)', 'rgba(110, 69, 226, 0.2)'];
-      
-      function drawWave(color, frequency, amplitude, offset) {
-        ctx.beginPath();
-        ctx.moveTo(0, waveCanvas.height);
-        
-        for (let i = 0; i < waveCanvas.width; i++) {
-          const x = i;
-          const y = waveCanvas.height / 2 + Math.sin(x * frequency + offset) * amplitude;
-          ctx.lineTo(x, y);
-        }
-        
-        ctx.lineTo(waveCanvas.width, waveCanvas.height);
-        ctx.lineTo(0, waveCanvas.height);
-        ctx.closePath();
-        
-        ctx.fillStyle = color;
-        ctx.fill();
-      }
-      
-      let offset1 = 0;
-      let offset2 = 3;
-      let offset3 = 6;
-      
-      function animate() {
-        ctx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
-        
-        offset1 += 0.01;
-        offset2 += 0.015;
-        offset3 += 0.02;
-        
-        drawWave(colors[0], wave.frequency, wave.amplitude * 0.7, offset1);
-        drawWave(colors[1], wave.frequency * 1.5, wave.amplitude * 0.5, offset2);
-        drawWave(colors[2], wave.frequency * 2, wave.amplitude * 0.3, offset3);
-        
-        requestAnimationFrame(animate);
-      }
-      
-      animate();
-      
-      // ================= Contact Form =================
-      const contactForm = document.getElementById('contact-form');
-      
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Show success message (in a real application, you would send the data to a server)
-        const successToast = document.createElement('div');
-        successToast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-primary to-lime-primary text-navy-900 px-6 py-3 rounded-lg shadow-xl z-50 toast-notification';
-        successToast.innerHTML = `
-          <div class="flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-            <span class="font-medium">Message sent successfully!</span>
-          </div>
-        `;
-        
-        document.body.appendChild(successToast);
-        
-        // Remove toast after animation completes
-        setTimeout(() => {
-          document.body.removeChild(successToast);
-        }, 3000);
-        
-        // Reset form
-        contactForm.reset();
-      });
-      
-      // ================= Floating Contact Card =================
-      const contactBtn = document.getElementById('contact-btn');
-      const contactCard = document.getElementById('contact-card');
-      const closeCardBtn = document.getElementById('close-card');
-      
-      contactBtn.addEventListener('click', () => {
-        contactCard.classList.toggle('hidden');
-      });
-      
-      closeCardBtn.addEventListener('click', () => {
-        contactCard.classList.add('hidden');
-      });
-      
-      // ================= Copy to Clipboard =================
-      function copyText(text) {
-        navigator.clipboard.writeText(text).then(() => {
-          const toast = document.createElement('div');
-          toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-primary to-lime-primary text-navy-900 px-6 py-3 rounded-lg shadow-xl z-50 toast-notification';
-          toast.innerHTML = `
-            <div class="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-              </svg>
-              <span class="font-medium">Copied: ${text}</span>
-            </div>
-          `;
-          
-          document.body.appendChild(toast);
-          
-          setTimeout(() => {
-            document.body.removeChild(toast);
-          }, 3000);
-        });
-      }
-    </script>
+    <script src="./js/main.js" defer></script>
   </body>
 </html>
