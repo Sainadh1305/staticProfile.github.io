@@ -1,5 +1,5 @@
 // You can add JS interactivity here
-console.log("Portfolio loaded successfully!");
+
 
 // ================= Navigation =================
 // Toggle mobile menu
