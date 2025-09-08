@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sainadh Reddy | Cloud-Native Engineer</title>
+  <title>Sainadh Reddy | Cloud-Native Engineer</title>
+  <meta name="description" content="Sainadha Penugonda — Full-Stack Engineer (Java, Spring Boot, React, AWS). MS IT, 4+ years building cloud-native microservices, automated CI/CD pipelines, and production UIs." />
     <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/npm/lucide-icons/icons/code.svg" />
 
     <!-- Fonts -->
@@ -157,6 +158,28 @@
     padding-left: 1.5rem;
     margin-bottom: 2rem;
   }
+  /* Skill badge visuals */
+  .skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(249,250,251,0.04);
+    padding: .4rem .6rem;
+    border-radius: 9999px;
+    font-size: .85rem;
+    color: #F9FAFB;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .skill-badge:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.4); background: rgba(0,201,255,0.04); }
+  .skill-badge .badge-icon { width: 18px; height: 18px; display: inline-block; flex: 0 0 18px; }
+
+  /* Card animations */
+  @keyframes popIn { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
+  .card-animate { animation: popIn .6s cubic-bezier(.2,.8,.2,1) both; }
+  .card-animate.delay-1 { animation-delay: .08s; }
+  .card-animate.delay-2 { animation-delay: .16s; }
+  .card-animate.delay-3 { animation-delay: .24s; }
   .timeline-dot {
     position: absolute;
     left: 0;
@@ -178,7 +201,7 @@
     <!-- Navigation -->
     <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-       <a href="#home" class="text-3xl font-black tracking-widest signature-text">SR</a>
+       <a href="#home" class="text-3xl font-black tracking-widest signature-text">SP</a>
        <ul class="hidden md:flex space-x-8 text-base font-medium">
   <li><a href="#home" class="nav-link group relative px-2 py-1 overflow-hidden">
     <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">Home</span>
@@ -196,10 +219,7 @@
     <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">Skills</span>
     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-primary group-hover:w-full transition-all duration-300"></span>
   </a></li>
-  <li><a href="#projects" class="nav-link group relative px-2 py-1 overflow-hidden">
-    <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">Projects</span>
-    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-primary group-hover:w-full transition-all duration-300"></span>
-  </a></li>
+
   <li><a href="#contact" class="nav-link group relative px-2 py-1 overflow-hidden">
     <span class="relative z-10 text-white-primary group-hover:text-teal-primary transition-colors duration-300">Contact</span>
     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-primary group-hover:w-full transition-all duration-300"></span>
@@ -235,9 +255,7 @@
     <li class="mobile-menu-item transform translate-x-8 opacity-0 transition-all duration-200 ease-out">
       <a href="#skills" class="block py-3 px-6 hover:bg-navy-700 text-white-primary hover:text-teal-primary border-l-4 border-transparent hover:border-teal-primary transition-all">Skills</a>
     </li>
-    <li class="mobile-menu-item transform translate-x-8 opacity-0 transition-all duration-200 ease-out">
-      <a href="#projects" class="block py-3 px-6 hover:bg-navy-700 text-white-primary hover:text-teal-primary border-l-4 border-transparent hover:border-teal-primary transition-all">Projects</a>
-    </li>
+   
     <li class="mobile-menu-item transform translate-x-8 opacity-0 transition-all duration-200 ease-out">
       <a href="#contact" class="block py-3 px-6 hover:bg-navy-700 text-white-primary hover:text-teal-primary border-l-4 border-transparent hover:border-teal-primary transition-all">Contact</a>
     </li>
@@ -247,20 +265,20 @@
 
     <main>
       <!-- ================= Hero Section ================= -->
-      <section id="home" class="relative min-h-screen pt-40 pb-16 overflow-hidden">
+    <section id="home" class="min-h-screen flex items-center justify-center py-12 px-6 overflow-hidden">
   <canvas id="wave-canvas" class="absolute inset-0 -z-10 opacity-30"></canvas>
   
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+  <div class="max-w-3xl mx-auto px-6 grid place-items-center gap-8 text-center">
     <!-- Hero Content -->
     <div class="animate-fade-in-up">
        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
-        <span class="bg-gradient-to-r from-teal-primary to-teal-primary bg-clip-text text-transparent">SAINADH REDDY</span>
+        <span class="bg-gradient-to-r from-teal-primary to-teal-primary bg-clip-text text-transparent">SAINADH PENUGONDA</span>
          <span class="block mt-2 text-white-primary opacity-0 animate-fade-in-up delay-500 text-3xl md:text-3xl">Software Development Engineer</span>
       </h1>
       
       
       <p class="mt-6 max-w-md text-lg text-white-primary/80">
-        Accomplished SDE with an MS in Information Technology and over three years of experience delivering cloud-native services.
+        MS in Information Technology • Full Stack Engineer. 4+ years building cloud‑native microservices, automated CI/CD pipelines, and production UIs focused on performance and security.
       </p>
       
       <div class="mt-8 flex flex-wrap gap-4">
@@ -282,22 +300,7 @@
       </div>
     </div>
     
-    <!-- Hero Image -->
-    <figure class="relative group animate-fade-in-left hidden md:block">
-      <div class="absolute inset-0 bg-gradient-to-r from-teal-primary to-lime-primary rounded-3xl blur-[40px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
-      <img 
-        src="./assets/images/Sainadh.jpeg" 
-        alt="Sainadh Reddy Penugonda" 
-        class="relative rounded-3xl shadow-xl w-72 md:w-96 h-72 md:h-96 object-cover group-hover:rotate-1 group-hover:scale-105 transition duration-500"
-      />
-      <div class="absolute -bottom-4 -right-4 p-2 bg-gradient-to-r from-teal-primary to-lime-primary rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div class="bg-navy-900 p-3 rounded-lg">
-          <p class="text-white-primary font-jetbrains text-xs whitespace-nowrap">
-            &lt;Full-Stack Engineer /&gt;
-          </p>
-        </div>
-      </div>
-    </figure>
+
   </div>
 </section>
 
@@ -312,374 +315,143 @@
           </h2>
           
           <div class="bg-navy-800/50 backdrop-blur-lg border border-white-primary/10 rounded-2xl p-8 shadow-xl animate-fade-in-up">
-            <p class="text-xl text-white-primary/90 mb-6 animate-fade-in-up delay-200">
-              I'm <strong class="text-teal-primary">Sainadha Reddy Penugonda</strong>, a <strong class="text-teal-primary">Software Development Engineer</strong> and graduate student at the University of Cincinnati (<em class="text-teal-primary">GPA 3.90/4.00</em>).
+            <p class="text-xl text-white-primary/90 mb-4 animate-fade-in-up">
+              I'm <strong class="text-teal-primary">Sainadha Reddy Penugonda</strong>. I hold an M.S. in Information Technology from the University of Cincinnati (GPA 3.9) and deliver resilient, secure microservices and performant front-ends. I'm a hands-on full‑stack developer who focuses on code quality, automated delivery, and measurable outcomes.
             </p>
-            
-            <p class="text-xl text-white-primary/80 mb-6 animate-fade-in-up delay-300">
-              Passionate about designing cloud‑native apps with <strong class="text-teal-primary">Java/Kotlin & Spring Boot</strong>, crafting intuitive UIs in <strong class="text-teal-primary">React/Next.js & Tailwind CSS</strong>, and deploying scalable solutions on <strong class="text-teal-primary">AWS</strong> using Docker, Kubernetes, & Terraform.
+
+            <p class="text-xl text-white-primary/80 mb-6 animate-fade-in-up delay-200">
+              Recent work includes architecting Spring Boot services and building responsive UIs with React and Angular. I lead small teams, mentor peers, and drive delivery through clear technical direction, testing, and observability practices.
             </p>
+
+            <p class="text-sm text-white-primary/70 mb-6">Download my resume or contact me to discuss opportunities.</p>
+
+            <div class="mt-6 flex gap-3">
+              <a href="./assets/Resume/Sainadha Reddy Penugonda_Resume.pdf" target="_blank" download class="btn-primary">Download Resume</a>
+              <a href="#contact" class="btn-secondary">Contact</a>
+            </div>
             
-            <p class="text-xl text-white-primary/80 mb-8 animate-fade-in-up delay-400">
-              Away from the keyboard, you'll find me connecting with people, exploring cultures, and hunting for new cuisines.
-            </p>
-            
-            <!-- Tech Stack -->
-            <div class="mt-10">
-              <h3 class="text-xl font-semibold text-teal-primary mb-4">My Tech Stack</h3>
-              <div class="flex flex-wrap gap-3">
-                <span class="skill-badge">Java</span>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= Experience Section (cards) ================= -->
+      <section id="experience" class="py-24 px-6 scroll-mt-24">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-bold text-center gradient-text mb-12">Work Experience</h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- May We Help NPO -->
+            <article class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 shadow-xl transform transition hover:-translate-y-2 card-animate delay-1">
+              <header class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-semibold flex items-center gap-3">Full Stack Developer</h3>
+                  <p class="text-teal-primary font-medium">May We Help</p>
+                </div>
+                <time class="text-sm text-white-primary/60">May 2025 - Present</time>
+              </header>
+              <ul class="mt-4 list-disc ml-5 text-white-primary/80 space-y-2 text-sm">
+                <li>Architected Spring Boot microservices with PostgreSQL and SQL Server; implemented optimistic locking and idempotent reservation flows.</li>
+                <li>Built an AI recommendation microservice (Python, FastAPI), containerized and deployed to EKS; secured S3 content with IAM and encryption.</li>
+                <li>Automated CI/CD with Bitbucket Pipelines and Maven; reduced manual deployment steps and improved reliability.</li>
+              </ul>
+             
+            </article>
+
+            <!-- University of Cincinnati -->
+    <article class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 shadow-xl transform transition hover:-translate-y-2 card-animate delay-2">
+              <header class="flex justify-between items-start">
+                <div>
+      <h3 class="text-xl font-semibold flex items-center gap-3">Software Engineer</h3>
+                  <p class="text-teal-primary font-medium">University of Cincinnati </p>
+                </div>
+                <time class="text-sm text-white-primary/60">Jan 2024 - May 2025</time>
+              </header>
+              <ul class="mt-4 list-disc ml-5 text-white-primary/80 space-y-2 text-sm">
+                <li>Led a small feature team to deliver Spring Boot microservices and React/Next.js components; improved UI delivery speed by ~25%.</li>
+                <li>Integrated Kafka for event-driven workflows; provisioned AWS infra (EC2, S3, ECS) and introduced OpenTelemetry for observability.</li>
+                <li>Implemented NLP keyword extraction in a FastAPI service for real-time text analysis and recommendations.</li>
+              </ul>
+            </article>
+
+            <!-- Cognizant - Combined roles -->
+    <article class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 shadow-xl transform transition hover:-translate-y-2 card-animate delay-3">
+              <header class="flex justify-between items-start">
+                <div>
+      <h3 class="text-xl font-semibold flex items-center gap-3">Programmer Analyst Trainee / Software Intern</h3>
+                  <p class="text-teal-primary font-medium">Cognizant</p>
+                </div>
+                <time class="text-sm text-white-primary/60">Mar 2022 - Aug 2023</time>
+              </header>
+              <ul class="mt-4 list-disc ml-5 text-white-primary/80 space-y-2 text-sm">
+                <li>Maintained Spring Boot microservices; optimized database access and container health checks to reduce downtime.</li>
+                <li>Built front-end features in React/Next.js and prototyped Python inference services for ML experiments.</li>
+              </ul>
+              
+            </article>
+
+            <!-- Squaricle Intelli Solutions (expanded) -->
+            <article class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 shadow-xl transform transition hover:-translate-y-2 card-animate delay-4">
+              <header class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-semibold flex items-center gap-3">Web Developer</h3>
+                  <p class="text-teal-primary font-medium">Squaricle Intelli Solutions</p>
+                </div>
+                <time class="text-sm text-white-primary/60">Jan 2021 - Feb 2022</time>
+              </header>
+              <ul class="mt-4 list-disc ml-5 text-white-primary/80 space-y-2 text-sm">
+                <li >Developed and deployed cloud-ready web applications using Java 17, Spring Boot and MySQL; automated reporting and reduced manual reporting effort by ~20%.</li>
+                <li>Built dynamic front-end features with React and modern HTML/CSS; ensured responsive design and cross-browser compatibility.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= Skills Section (condensed) ================= -->
+      <section id="skills" class="py-24 px-6 scroll-mt-24 bg-navy-800/10">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-4xl font-bold text-center gradient-text mb-12">Skills & Technologies</h2>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl bg-navy-800/50 border border-white-primary/10">
+              <h4 class="text-teal-primary font-semibold mb-3">Languages & Frameworks</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-badge">Java 17</span>
                 <span class="skill-badge">Spring Boot</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">API</span>
                 <span class="skill-badge">React</span>
                 <span class="skill-badge">Next.js</span>
                 <span class="skill-badge">TypeScript</span>
-                <span class="skill-badge">AWS</span>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-navy-800/50 border border-white-primary/10">
+              <h4 class="text-teal-primary font-semibold mb-3">Cloud & DevOps</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-badge">AWS (ECS, EKS, Lambda)</span>
                 <span class="skill-badge">Docker</span>
                 <span class="skill-badge">Kubernetes</span>
-                <span class="skill-badge">Kafka</span>
-                <span class="skill-badge">PostgreSQL</span>
-                <span class="skill-badge">Redis</span>
                 <span class="skill-badge">Terraform</span>
                 <span class="skill-badge">CI/CD</span>
-                <span class="skill-badge">Microservices</span>
               </div>
             </div>
-            
-          </div>
-        </div>
-      </section>
-      
-      <!-- ================= Experience Section ================= -->
-      <section id="experience" class="py-24 px-6 scroll-mt-24">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-4xl font-bold text-center gradient-text mb-16">
-            Work Experience
-          </h2>
-          
-          <div class="space-y-12">
-            <!-- 1. Software Engineer (Full‑Time) -->
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                  <h3 class="font-semibold text-lg">Software Engineer · <span class="text-teal-primary">University of Cincinnati</span></h3>
-                  <time class="text-sm text-white-primary/60 font-jetbrains">Feb 2025 – May 2025</time>
-                </header>
-                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
-                  Led 5‑person team delivering React + Spring Boot microservices; automated AWS ECS deployments with Terraform, reducing rollout time by 50%.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="skill-badge text-xs">Java</span>
-                  <span class="skill-badge text-xs">Spring Boot</span>
-                  <span class="skill-badge text-xs">React</span>
-                  <span class="skill-badge text-xs">AWS ECS</span>
-                  <span class="skill-badge text-xs">Terraform</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- 2. Software Engineer (Part‑Time) -->
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                  <h3 class="font-semibold text-lg">Software Engineer · <span class="text-teal-primary">University of Cincinnati</span></h3>
-                  <time class="text-sm text-white-primary/60 font-jetbrains">Jan 2024 – Dec 2024</time>
-                </header>
-                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
-                  Enhanced Spring Boot APIs (−40% latency), refactored cache layer with Redis, and created 30+ reusable React components.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="skill-badge text-xs">Spring Boot</span>
-                  <span class="skill-badge text-xs">Redis</span>
-                  <span class="skill-badge text-xs">React</span>
-                  <span class="skill-badge text-xs">API Optimization</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- 3. Software Intern -->
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                  <h3 class="font-semibold text-lg">Software Intern · <span class="text-teal-primary">Ivor Source</span></h3>
-                  <time class="text-sm text-white-primary/60 font-jetbrains">Sep 2024 – Dec 2024</time>
-                </header>
-                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
-                  Built internal tooling stack (Spring Boot, Angular, PostgreSQL); secured 100+ APIs with OAuth2 and optimised AWS costs 35%.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="skill-badge text-xs">Spring Boot</span>
-                  <span class="skill-badge text-xs">Angular</span>
-                  <span class="skill-badge text-xs">PostgreSQL</span>
-                  <span class="skill-badge text-xs">OAuth2</span>
-                  <span class="skill-badge text-xs">AWS</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- 4. Software Engineer -->
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                  <h3 class="font-semibold text-lg">Programmer Analyst Trainee · <span class="text-teal-primary">Cognizant</span></h3>
-                  <time class="text-sm text-white-primary/60 font-jetbrains">Oct 2022 – Aug 2023</time>
-                </header>
-                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
-                  Delivered microservices for Fortune 500 retail client; integrated Kafka streams; improved code coverage to 92%.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="skill-badge text-xs">Java</span>
-                  <span class="skill-badge text-xs">Microservices</span>
-                  <span class="skill-badge text-xs">Kafka</span>
-                  <span class="skill-badge text-xs">JUnit</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- 5. Associate Engineer -->
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card">
-                <header class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                  <h3 class="font-semibold text-lg">Software Intern · <span class="text-teal-primary">Cognizant</span></h3>
-                  <time class="text-sm text-white-primary/60 font-jetbrains">Mar 2022 – Aug 2022</time>
-                </header>
-                <p class="mt-3 text-white-primary/80 text-sm leading-relaxed">
-                  Developed RESTful APIs in Java; collaborated with QA to cut production bugs 40%; mentored two junior developers.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="skill-badge text-xs">Java</span>
-                  <span class="skill-badge text-xs">REST APIs</span>
-                  <span class="skill-badge text-xs">SQL</span>
-                  <span class="skill-badge text-xs">Mentoring</span>
-                </div>
+
+            <div class="p-6 rounded-2xl bg-navy-800/50 border border-white-primary/10">
+              <h4 class="text-teal-primary font-semibold mb-3">Testing & Observability</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-badge">JUnit</span>
+                <span class="skill-badge">Mockito</span>
+                <span class="skill-badge">Cypress</span>
+                <span class="skill-badge">OpenTelemetry</span>
+                <span class="skill-badge">Dynatrace</span>
               </div>
             </div>
           </div>
         </div>
       </section>
       
-      <!-- ================= Skills Section ================= -->
-      <section id="skills" class="py-24 px-6 scroll-mt-24 bg-navy-800/30">
-        <div class="max-w-5xl mx-auto">
-          <h2 class="text-4xl font-bold text-center gradient-text mb-16">
-            Skills & Technologies
-          </h2>
-          
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Backend Technologies -->
-            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 hover:transform hover:scale-105 transition-all duration-300">
-              <h3 class="text-xl font-semibold text-teal-primary mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                </svg>
-                Backend
-              </h3>
-              
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Java</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="95%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Spring Boot</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Kotlin</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">PostgreSQL</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Redis</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- Frontend Technologies -->
-            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 hover:transform hover:scale-105 transition-all duration-300">
-              <h3 class="text-xl font-semibold text-teal-primary mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                  <polyline points="2 17 12 22 22 17"></polyline>
-                  <polyline points="2 12 12 17 22 12"></polyline>
-                </svg>
-                Frontend
-              </h3>
-              
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">React</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Next.js</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">TypeScript</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Tailwind CSS</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Angular</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="75%"></div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- Cloud & DevOps -->
-            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-6 hover:transform hover:scale-105 transition-all duration-300">
-              <h3 class="text-xl font-semibold text-teal-primary mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                </svg>
-                Cloud & DevOps
-              </h3>
-              
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">AWS</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Docker</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="90%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Kubernetes</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="80%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">Terraform</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
-                  </div>
-                </li>
-                <li class="flex items-center">
-                  <span class="w-1/3 text-white-primary/70">CI/CD</span>
-                  <div class="w-2/3 bg-navy-700 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-gradient-to-r from-teal-primary to-teal-primary h-2.5 rounded-full skill-progress" style="width: 0%" data-width="85%"></div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- ================= Projects Section ================= -->
-      <section id="projects" class="py-24 px-6 scroll-mt-24">
-        <div class="max-w-5xl mx-auto">
-          <h2 class="text-4xl font-bold text-center gradient-text mb-16">
-            Featured Projects
-          </h2>
-          
-          <div class="grid md:grid-cols-2 gap-8">
-            <!-- Project 1 -->
-            <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl group">
-              <div class="relative h-48 overflow-hidden">
-                <img 
-                  src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg" 
-                  alt="E-commerce platform" 
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-900 to-transparent opacity-60"></div>
-              </div>
-              
-              <div class="p-6">
-                <h3 class="font-semibold text-xl text-teal-primary">E-commerce Platform</h3>
-                <p class="mt-2 text-white-primary/80 text-sm">
-                  Spring Boot + React storefront handling 10K users, integrated AWS S3 & Stripe. Implemented responsive UI and microservices architecture.
-                </p>
-                
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="skill-badge text-xs">Java</span>
-                  <span class="skill-badge text-xs">Spring Boot</span>
-                  <span class="skill-badge text-xs">React</span>
-                  <span class="skill-badge text-xs">AWS</span>
-                  <span class="skill-badge text-xs">Stripe API</span>
-                </div>
-                
-                <div class="mt-4 flex gap-4 text-sm font-medium">
-                  <a href="#" class="text-teal-primary hover:text-lime-primary transition-colors flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <circle cx="12" cy="12" r="4"></circle>
-                      <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
-                      <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
-                      <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
-                      <line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line>
-                      <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
-                    </svg>
-                    Live Demo
-                  </a>
-                  
-                  <a href="#" class="text-teal-primary hover:text-lime-primary transition-colors flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="16 18 22 12 16 6"></polyline>
-                      <polyline points="8 6 2 12 8 18"></polyline>
-                    </svg>
-                    Source Code
-                  </a>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Project 2 -->
-           
-          </div>
-          
-          <!-- CTA for More Projects -->
-          <div class="mt-12 text-center">
-            <a href="https://github.com/Sainadh1305" target="_blank" class="btn-primary inline-flex items-center">
-              See More Projects
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 18l6-6-6-6"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
+   
       
       <!-- ================= Contact Section ================= -->
       <section id="contact" class="py-24 px-6 scroll-mt-24 bg-navy-800/30">
@@ -703,7 +475,7 @@
                   </div>
                   <div>
                     <p class="text-sm text-white-primary/60">Email</p>
-                    <a href="mailto:psainadhareddy2001@gmail.com" class="text-teal-primary font-medium hover:text-lime-primary transition-colors">psainadhareddy2001@gmail.com</a>
+                    <a href="mailto:sainadhapenugonda@gmail.com" class="text-teal-primary font-medium hover:text-lime-primary transition-colors">sainadhapenugonda@gmail.com</a>
                   </div>
                 </div>
                 
@@ -764,16 +536,17 @@
               </div>
             </div>
             
-            <!-- Contact Form -->
+           
             <div class="bg-navy-800/50 border border-white-primary/10 rounded-2xl p-8 shadow-xl animate-fade-in-up delay-200">
               <h3 class="text-2xl font-semibold text-teal-primary mb-6">Send Me a Message</h3>
-              <form id="contact-form">
+              <form id="contact-form" action="https://formspree.io/f/mnnvnlrv" method="POST">
                 <div class="mb-4">
                   <label for="name" class="block text-sm font-medium text-white-primary/70 mb-1">Name</label>
                   <input 
                     type="text" 
                     id="name" 
                     name="name" 
+                    required
                     class="w-full px-4 py-2 bg-navy-700 border border-white-primary/10 rounded-lg focus:ring-2 focus:ring-teal-primary focus:border-teal-primary transition-colors text-white-primary"
                   />
                 </div>
@@ -784,6 +557,7 @@
                     type="email" 
                     id="email" 
                     name="email" 
+                    required
                     class="w-full px-4 py-2 bg-navy-700 border border-white-primary/10 rounded-lg focus:ring-2 focus:ring-teal-primary focus:border-teal-primary transition-colors text-white-primary"
                   />
                 </div>
@@ -794,6 +568,7 @@
                     id="message" 
                     name="message" 
                     rows="4" 
+                    required
                     class="w-full px-4 py-2 bg-navy-700 border border-white-primary/10 rounded-lg focus:ring-2 focus:ring-teal-primary focus:border-teal-primary transition-colors text-white-primary"
                   ></textarea>
                 </div>
@@ -806,6 +581,7 @@
                 </button>
               </form>
             </div>
+
           </div>
         </div>
       </section>
@@ -852,7 +628,7 @@
       <div class="max-w-5xl mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-center border-b border-white-primary/10 pb-8 mb-8">
           <div class="mb-6 md:mb-0">
-            <span class="text-3xl font-black tracking-widest gradient-text">SR</span>
+            <span class="text-3xl font-black tracking-widest gradient-text">SP</span>
             <p class="mt-2 text-white-primary/60 max-w-md">Building elegant, scalable software solutions with a focus on cloud-native architecture and beautiful user experiences.</p>
           </div>
           
@@ -893,5 +669,44 @@
     
     <!-- ================= Scripts ================= -->
     <script src="./js/main.js" defer></script>
+    <script>
+      // Contact form UX: show inline success message and fallback mailto link on failure
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contact-form');
+        if (!form) return;
+
+        // region: create status element
+        const status = document.createElement('div');
+        status.id = 'contact-status';
+        status.setAttribute('role', 'status');
+        status.setAttribute('aria-live', 'polite');
+        status.className = 'mt-4 text-sm';
+        form.parentNode.insertBefore(status, form.nextSibling);
+        // endregion
+
+        form.addEventListener('submit', async function (e) {
+          // Let Formspree handle the POST; show a friendly message and clear form on success
+          status.textContent = 'Sending…';
+          try {
+            // Use fetch to POST and handle status; preserves users who have JS disabled because form has action attribute
+            const formData = new FormData(form);
+            const res = await fetch(form.action, { method: form.method || 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+            if (res.ok) {
+              status.textContent = 'Thanks — your message was sent. I will get back to you soon.';
+              form.reset();
+                } else {
+                const data = await res.json().catch(() => ({}));
+                if (data && data.error) {
+                status.textContent = data.error;
+              } else {
+                status.innerHTML = 'Submission failed. You can also email me directly at <a href="mailto:sainadhapenugonda@gmail.com" class="text-teal-primary underline">sainadhapenugonda@gmail.com</a>';
+              }
+            }
+          } catch (err) {
+            status.innerHTML = 'Network error. Please email me at <a href="mailto:sainadhapenugonda@gmail.com" class="text-teal-primary underline">sainadhapenugonda@gmail.com</a>';
+          }
+        });
+      });
+    </script>
   </body>
 </html>
